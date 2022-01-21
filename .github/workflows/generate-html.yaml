@@ -15,4 +15,11 @@ jobs:
       - name: Convert Markdown to html
         run: |
           pip3 install -r requirements.txt
-          python3 scripts/markdown-me.py README.md 
+          python3 scripts/markdown-me.py README.md index.html
+
+      - name: Commit Pages docs
+        uses: stefanweifel/git-auto-commit-action@v4
+        with: 
+          file_pattern: "docs/"
+          commit_message: "Publishing pages from Markdown"
+          add_options: 'docs/' 

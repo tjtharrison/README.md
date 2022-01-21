@@ -3,7 +3,10 @@ import markdown
 from pathlib import Path
 
 source_file = Path(sys.argv[1])
-destination_file = "docs/" + str(source_file.with_suffix('.html'))
+dest_file_name = (sys.argv[2])
+destination_file = "docs/" + dest_file_name
+
+print("Converting " + source_file)
 
 with open(source_file, 'r') as f:
     text = f.read()
@@ -11,3 +14,5 @@ with open(source_file, 'r') as f:
 
 with open(destination_file, 'w') as f:
     f.write(html)
+
+print(destination_file + " written!")
