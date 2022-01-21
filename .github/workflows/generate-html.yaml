@@ -16,10 +16,12 @@ jobs:
         run: |
           pip3 install -r requirements.txt
           python3 scripts/markdown-me.py README.md index.html
-
+      - name: Fix html paths
+        run: |
+          sed -i 's#.\/docs##g' docs/index.html
       - name: Commit Pages docs
         uses: stefanzweifel/git-auto-commit-action@v4
         with: 
           file_pattern: "docs/"
           commit_message: "Publishing pages from Markdown"
-          add_options: 'docs/' 
+          add_options: 'docs/'
