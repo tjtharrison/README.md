@@ -15,4 +15,4 @@ jobs:
       - name: Convert Markdown to html
         run: |
           pip3 install -r requirements.txt
-          python3 ./scripts/markdown README.md 
+          python3 scripts/markdown-me.py README.md 
