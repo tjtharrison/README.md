@@ -1,10 +1,9 @@
 import sys
 import markdown
-from pathlib import Path
 
-source_file = Path(sys.argv[1])
-dest_file_name = (sys.argv[2])
-destination_file = "docs/" + dest_file_name
+source_file = sys.argv[1]
+dest_file_name = sys.argv[2]
+destination_file = "docs/" + str(dest_file_name)
 
 print("Converting " + source_file)
 
