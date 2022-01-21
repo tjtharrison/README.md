@@ -19,6 +19,10 @@ jobs:
       - name: Fix html paths
         run: |
           sed -i 's#.\/docs##g' docs/index.html
+      - name: Add header block to docs
+        run: |
+          cat header.html docs/index.html > docs/index.html
+
       # - name: Generate pdf
       #   run: |
       #     apt-get install wkhtmltopdf

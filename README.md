@@ -1,8 +1,11 @@
 # README.md
 
-View my README in [Github Pages](https://tjtharrison.github.io/README.md)
+[Github Pages](https://tjtharrison.github.io/README.md)
+[Github Repo](https://github.com/tjtharrison/README.md)
 
 # Tim Harrison
+
+![Me](./docs/img/timh.png)
 
 <span class="green">Aim: </span>To use my technical expertise and excellent communication skills to help a team achieve success.
 
@@ -46,7 +49,7 @@ I am strong technically, with the ability to make strategic decisions under time
 
 <span class="green">Bespoke Website with Database:</span> Wrote a web application based in Python for Music Management startup, including Python Web UI (With account permissions), database backend (to Cloud hosted Database).
 
-## Employment History
+# Employment History
 
 <span class="green">Smart Pensions (April 2021 - Present) DevOps Engineer (Platform Security Team):</span> I am currently working as part of a wider DevOps team of 20+ engineers, working on a range of technologies building, supporting and securing AWS via IAC (Terraform). I work in the Platform Security sub-team, working on implementing various AWS security infrastructure modules (AWS Config, Cloudtrail, Guardduty) including management of alerts via Datadog to our team chat platform. 
 
