@@ -1,6 +1,8 @@
 import sys
 import markdown
 import pdfkit
+from textblob import TextBlob
+
 
 source_file = "README.md"
 header_file = "header.html"
@@ -12,6 +14,13 @@ print("Converting " + source_file + " to HTML")
 # Load Markdown content
 with open(source_file, 'r') as f:
     text = f.read()
+    print("Running spellchecker..")
+    textBlb = TextBlob(text)            # Making our first textblob
+    textCorrected = textBlb.correct()   # Correcting the text
+    if textCorrected is text:
+        print("No mistakes")
+    else:
+        print("Mistakes found!")
     html = markdown.markdown(text)
     ## Fix paths from README
     html = html.replace('./docs/', "")
