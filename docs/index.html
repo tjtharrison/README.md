@@ -53,4 +53,151 @@
 <p><a href="https://tjth.co">Website</a></p>
 <p><a href="https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url">Credly</a></p>
 <p><a href="https://github.com/tjtharrison">Github</a></p>
-<p><a href="https://www.linkedin.com/in/tim-harrison-47b11159/">LinkedIn</a></p>
+<p><a href="https://www.linkedin.com/in/tim-harrison-47b11159/">LinkedIn</a></p><script>
+if (document.cookie == "buildState=built") {
+    console.log(JSON.stringify(document.cookie))
+    console.log("Already built")
+    var header = document.getElementById("header");
+    var mainCV = document.getElementById("mainCV");
+    var buildSkip = document.getElementById("buildSkip");
+    header.className += " displayTrue";
+    mainCV.className += " displayTrue";
+    buildSkip.className += " displayFalse"
+}
+</script>
+<script>
+window.onload = function () {
+    setTimeout(setWidth, 6000)
+    setTimeout(leftWhite, 12000)
+    setTimeout(leftColor, 17000)
+    setTimeout(rightGreen, 23000)
+    setTimeout(linkColour, 34000)
+    setTimeout(columnPadding, 40000)
+    setTimeout(openSans, 45000)
+    setTimeout(h2Border, 55000)
+};
+
+function skipStyling() {
+    console.log("Got here")
+    setWidth()
+    leftWhite()
+    leftColor()
+    rightGreen()
+    linkColour()
+    columnPadding()
+    openSans()
+    h2Border()
+    hideBuilder()
+}
+
+function setWidth() {
+    var width70 = document.getElementById("width70 left");
+    width70.className += " width70";
+    var width30 = document.getElementById("width30 right");
+    width30.className += " width30";
+}
+
+function hideBuilder() {
+    var builder = document.getElementById("builder");
+    builder.className += " displayNone"
+}
+
+function leftWhite() {
+    var left = document.getElementById("width70 left");
+    left.className += " left";
+}
+function rightGreen() {
+    var right = document.getElementById("width30 right");
+    right.className += " right";
+}
+function linkColour() {
+    document.querySelectorAll('a').forEach(e => e.className += ' linkColour');
+}
+function leftColor() {
+    var left = document.getElementById("width70 left");
+    left.className += " blackText";
+}
+function columnPadding() {
+    var left = document.getElementById("width70 left");
+    var right = document.getElementById("width30 right");
+    left.className += " columnPadding";
+    right.className += " columnPadding";
+}
+function openSans() {
+    document.querySelectorAll('p, h2').forEach(e => e.className += ' openSans');
+}
+function h2Border() {
+    document.querySelectorAll('h2').forEach(e => e.className += ' h2Border');
+} 
+</script>
+<script>
+    function setupTypewriter(t) {
+    var HTML = t.innerHTML;
+
+    t.innerHTML = "";
+
+    var cursorPosition = 0,
+        tag = "",
+        writingTag = false,
+        tagOpen = false,
+        typeSpeed = 30,
+    tempTypeSpeed = 0;
+
+    var type = function() {
+    
+            if (writingTag === true) {
+                tag += HTML[cursorPosition];
+            }
+            
+            if (HTML[cursorPosition] === "<") {
+                tempTypeSpeed = 0;
+                if (tagOpen) {
+                    tagOpen = false;
+                    writingTag = true;
+                } else {
+                    tag = "";
+                    tagOpen = true;
+                    writingTag = true;
+                    tag += HTML[cursorPosition];
+                }
+            }
+            if (!writingTag && tagOpen) {
+                tag.innerHTML += HTML[cursorPosition];
+            }
+            if (!writingTag && !tagOpen) {
+                if (HTML[cursorPosition] === " ") {
+                    tempTypeSpeed = 0;
+                }
+                else {
+                    tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+                }
+                t.innerHTML += HTML[cursorPosition];
+            }
+            if (writingTag === true && HTML[cursorPosition] === ">") {
+                tempTypeSpeed = (Math.random() * typeSpeed) + 50;
+                writingTag = false;
+                if (tagOpen) {
+                    var newSpan = document.createElement("span");
+                    t.appendChild(newSpan);
+                    newSpan.innerHTML = tag;
+                    tag = newSpan.firstChild;
+                }
+            }
+
+            cursorPosition += 1;
+            if (cursorPosition < HTML.length - 1) {
+                setTimeout(type, tempTypeSpeed);
+            }
+    };
+
+    return {
+        type: type
+    };
+}
+
+var typer = document.getElementById('typewriter');
+
+typewriter = setupTypewriter(typewriter);
+
+typewriter.type();
+</script>

@@ -4,6 +4,7 @@ import pdfkit
 
 source_file = "README.md"
 header_file = "header.html"
+footer_file = "footer.html"
 destination_file = "docs/index.html"
 
 print("Converting " + source_file + " to HTML")
@@ -19,9 +20,15 @@ with open(source_file, 'r') as f:
 with open(header_file, 'r') as h:
     header = h.read()
 
-with open(destination_file, 'w') as f:
-    f.write(header)
-    f.write(html)
+# Load footer content
+with open(footer_file, 'r') as f:
+    footer = f.read()
+
+
+with open(destination_file, 'w') as a:
+    a.write(header)
+    a.write(html)
+    a.write(footer)
 
 print(destination_file + " written!")
 
