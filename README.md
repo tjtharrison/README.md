@@ -1,9 +1,9 @@
 # README.md
 
-[Github Pages](https://tjtharrison.github.io/README.md)
-[Github Repo](https://github.com/tjtharrison/README.md)
+* [Github Pages](https://tjtharrison.github.io/README.md)
+* [Github Repo](https://github.com/tjtharrison/README.md)
 
-# Tim Harrison
+## About Me
 
 ![Me](./docs/img/timh.png)
 
@@ -15,7 +15,7 @@ I am flexible with working hours and travel and have held a full, clean UK drivi
 
 I am strong technically, with the ability to make strategic decisions under time and budget constraints and execute reliably.
 
-# Key Skills 
+## Key Skills 
 
 <span class="green">Cloud Management:</span> I have over 6 years experience working with AWS (EC2, S3, Cloudfront, EKS, IAM, EFS, Storage Gateway, Load Balancers, Autoscaling Groups, RDS, Cloudtrail, Cloudwatch, EKS, KMS). I also have experience working with GCP (Including GKE, Networking), Azure (limited) and other smaller Cloud Providers (Scaleway, Digital Ocean etc) as well as code hosting platforms such as Heroku.
 
@@ -33,9 +33,11 @@ I am strong technically, with the ability to make strategic decisions under time
 
 <span class="green">Project Management:</span> SOC and SIEM implementation,  consultancy, Office 365 Migrations, P2V (Physical > Virtual Server Migrations), Brand Development (Inc Website, Corporate Branding, Marketing Campaigns) working to tight Deadlines with close Customer contact. Understanding of App Development processes (Agile) and different release methods (Canary, Blue / Green).
 
-# Acheivements
+## Acheivements
 
 ![AWS Security Specialist](./docs/img/aws-certified-security-specialty.png)
+
+<span class="green">AWS Security Specialist:</span> I have recently completed my AWS Security Specialist certification. This covered a wide range of security focused services on AWS and has helped me with my day to day work implementing solutions on AWS to improve security posture.
 
 <span class="green">DevOps - CI/CD Implementation:</span> Built a CI/CD Pipeline from design through to implementation with requirements from team leaders - Combining Gitlab, Jenkins Multibranch Pipelines, Helm, Kubernetes, Slack, Jira (Transitions, RemoteLinks, Comments) and Private NPM Repository.
 
@@ -49,9 +51,13 @@ I am strong technically, with the ability to make strategic decisions under time
 
 <span class="green">Bespoke Website with Database:</span> Wrote a web application based in Python for Music Management startup, including Python Web UI (With account permissions), database backend (to Cloud hosted Database).
 
-# Employment History
+## Employment History
 
-<span class="green">Smart Pensions (April 2021 - Present) DevOps Engineer (Platform Security Team):</span> I am currently working as part of a wider DevOps team of 20+ engineers, working on a range of technologies building, supporting and securing AWS via IAC (Terraform). I work in the Platform Security sub-team, working on implementing various AWS security infrastructure modules (AWS Config, Cloudtrail, Guardduty) including management of alerts via Datadog to our team chat platform. 
+<span class="green">Smart Pensions (December 2021 - Present) InfraSec Tech Lead:</span> I currently lead a team of 3 Infrastructure engineers with a team focus on ensuring the Infrastructure Security of our Cloud estate (Primarily AWS). This involves initialising, designing and leading infrastructure projects, attending meetings, handling technical escalations as well as team management.
+
+I run regular standups, 1-1s, coaching sessions with junior team members and retrospective sessions. The focus being to highlight where improvements can be made on the team's working environment and cycle time for tickets for our internal and external clients.
+
+<span class="green">Smart Pensions (April 2021 - December 2021) Senior DevOps Engineer (Platform Security Team):</span> I am worked as part of a wider DevOps team of 20+ engineers, working on a range of technologies building, supporting and securing AWS via IAC (Terraform). I work in the Platform Security sub-team, working on implementing various AWS security infrastructure modules (AWS Config, Cloudtrail, Guardduty) including management of alerts via Datadog to our team chat platform. 
 
 I have lead a number of high priority security incidents, including communication to senior members of staff, detailed timelines and incident reporting (Post Mortem analysis) and am the primary security support engineer (Responding to alerts from Datadog and assessing before deciding on resolution path).
 
@@ -63,26 +69,25 @@ I have lead the building of our internal DevOps team focusing on migrating servi
 
 <span class="green">iQuda (Jan 2011 - Jan 2017) Various Roles (Service Desk Management / Level 3 Technician):</span> Rose quickly through the company, starting as a Web Developer before starting in Tech Support as a Level 1 Technician, moving through to Level 3 then onto Servicedesk Management and Project planning. This role included implementing and improving on processes and procedures, Customer account management and Reporting for Client contacts and internal management.
                         
-# Education
+## Education
 
-<span class="green">AWS Solution Architect:</span> I am currently working on my AWS Solutions Architect training and aim to complete the certification in the following Months.
+<span class="green">AWS DevOps Professional:</span> I am currently working on my AWS DevOps Professional training and aim to complete the certification in Q1 2022.
                         
-<span class="green">Additional Courses:</span> Udemy Courses in ITIL, Python, Kubernetes.
+<span class="green">Additional Courses:</span> Udemy Courses in ITIL, Python, Kubernetes, AWS Security Specialist, AWS DevOps Professional, Scrum/Agile.
 
 <span class="green">Parmiter's School:</span> A Levels in Sociology, History, IT and English
 
-# Hobbies
+## Hobbies
 
-While away from the Computer I spend my time working on DIY projects around the house and going on bike rides.
+<span class="green">DIY:</span> While away from the Computer I spend my time working on DIY projects around the house and going on bike rides.
 
-In the evenings I am working on a project combining my training with Python and React (Native) to build a mobile app with Python API deployed on AWS hosted infrastructure (Infrastructure via Terraform).
+<span class="green">Personal Projects:</span> In the evenings I am working on a project combining my training with Python and React (Native) to build a mobile app with Python API deployed on AWS hosted infrastructure (Infrastructure via Terraform).
 
-# Websites
+<span class="green">Coding Games:</span> I also spent time on coding websites such as [https://codingame.com](https://codingame.com) which helps me improve my coding efficiency.
 
-[Website](https://tjth.co)
+## Websites
 
-[Credly](https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url)
-
-[Github](https://github.com/tjtharrison)
-
-[LinkedIn](https://www.linkedin.com/in/tim-harrison-47b11159/)
+* [Website](https://tjth.co)
+* [Credly](https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url)
+* [Github](https://github.com/tjtharrison)
+* [LinkedIn](https://www.linkedin.com/in/tim-harrison-47b11159/)
