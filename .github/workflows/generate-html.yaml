@@ -15,19 +15,7 @@ jobs:
       - name: Convert Markdown to html
         run: |
           pip3 install -r requirements.txt
-          python3 scripts/markdown-me.py README.md index.html
-      - name: Fix html paths
-        run: |
-          sed -i 's#.\/docs/##g' docs/index.html
-      - name: Add header block to docs
-        run: |
-          cat header.html docs/index.html > docs/index-full.html
-          rm -rf docs/index.html
-          mv docs/index-full.html docs/index.html
-      # - name: Generate pdf
-      #   run: |
-      #     apt-get install wkhtmltopdf
-      #     python3 scripts/generate-pdf.py
+          python3 scripts/convert-markdown.py 
       - name: Commit Pages docs
         uses: stefanzweifel/git-auto-commit-action@v4
         with: 
