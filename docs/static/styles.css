@@ -48,10 +48,13 @@ ul li a:hover {
 
 img[alt="Me"] {
     border-radius:50%;
-    float:right;
     border: solid 5px #153823;
     height:250px;
     margin:10px;
+}
+
+img {
+    float:right;
 }
 
 ul {
