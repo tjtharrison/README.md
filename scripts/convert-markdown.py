@@ -14,7 +14,7 @@ print("Converting " + source_file + " to HTML")
 # Load Markdown content
 with open(source_file, 'r') as f:
     text = f.read()
-    html = markdown.markdown(text)
+    html = markdown.markdown(text, extensions=['attr_list','md_in_html'])
     ## Fix paths from README
     html = html.replace('./docs/', "")
 

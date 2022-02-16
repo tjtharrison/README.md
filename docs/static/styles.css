@@ -1,32 +1,31 @@
-span.green, a {
-	color: #31aa58;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display&display=swap');
+
+h1,h2, h3 {
+    text-transform: uppercase;
+    font-family: 'Noto Serif Display', serif;
 }
 
-#header_block, body {
-    width:90%;
-    margin:0 auto;
+span.green, a {
+	color: #31aa58;
 }
 
 body {
     font-family:'Open Sans', 'sans-serif';
     background-color:#E1E1E1;
+    width:80%;
+    margin: 0 auto;
 }
 
-#header_block {
+#header_wrapper {
     width:100%;
-    background:#153823;
-    color:white;
+    background:#716f7f;
     text-align: center;
-    padding: 20px 0;
+    color:white;
+    padding: 20px 10px;
 }
 
 #header_block h1 {
     color: #B79E74;
-}
-
-h1,h2, h3 {
-    text-transform: uppercase;
-    font-family: “Playfair Display”, “Didot”, "Times New Roman", Times, serif;
 }
 
 ul li {
@@ -52,6 +51,7 @@ img[alt="Me"] {
     float:right;
     border: solid 5px #153823;
     height:250px;
+    margin:10px;
 }
 
 ul {
