@@ -1,11 +1,12 @@
-# README.md
-
-* [Github Pages](https://tjtharrison.github.io/README.md)
-* [Github Repo](https://github.com/tjtharrison/README.md)
-
-## About Me
-
 ![Me](./docs/img/timh.png)
+## Tim Harrison
+### Infrastructure Security Team Lead
+
+</div>
+</div>
+<!-- I hate this but it's here for the concatenated file -->
+
+## About Me {.main}
 
 <span class="green">Aim: </span>To use my technical expertise and excellent communication skills to help a team achieve success.
 
@@ -81,7 +82,7 @@ I have lead the building of our internal DevOps team focusing on migrating servi
 
 <span class="green">DIY:</span> While away from the Computer I spend my time working on DIY projects around the house and going on bike rides.
 
-<span class="green">Personal Projects:</span> In the evenings I am working on a project combining my training with Python and React (Native) to build a mobile app with Python API deployed on AWS hosted infrastructure (Infrastructure via Terraform).
+<span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Python3, however, also using JavaScript), deploying via IAC into AWS.
 
 <span class="green">Coding Games:</span> I also spent time on coding websites such as [https://codingame.com](https://codingame.com) which helps me improve my coding efficiency.
 
