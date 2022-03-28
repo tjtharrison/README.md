@@ -2,9 +2,7 @@
 ## Tim Harrison
 ### Infrastructure Security Team Lead
 
-</div>
-</div>
-<!-- I hate this but it's here for the concatenated file -->
+<!-- EndHead -->
 
 ## About Me {.main}
 
