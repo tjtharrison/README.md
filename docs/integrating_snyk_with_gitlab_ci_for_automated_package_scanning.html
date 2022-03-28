@@ -1,0 +1,50 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='static/styles.css' />
+</head>
+
+<!-- <div id="header_block">
+</div> -->
+
+<div id="header_block">
+<div id="header_wrapper">
+<!-- I hate the above but it works when concatenating the html files--><h1>Integrating Snyk with Gitlab CI for Automated package scanning</h1>
+<p>Snyk.io is a great online (Free for open source projects) tool for automated scanning of your project directories. It has built in integrations for various SCM and IDEs, however, I like to keep my projects SCM agnostic in case I decide to change in the future.</p>
+<p>This guide will show you how to configure your Gitlab CI Runner (Cloud hosted) to run Snyk testing as part of your pipeline. If you do not yet have a pipeline configured, see this guide for a starter. TBC</p>
+<h2>Generating API Token</h2>
+<p>The first hurdle that must be jumped to integrate your Gitlab CI runner with Snyk is to configure authentication. To allow for your automation platform to authenticate with Snyk (To save running snyk auth on each build) we will be using an API token stored in an environment variable.</p>
+<p>https://app.snyk.io/account</p>
+<p>Click the above link and click to show your API token, make a note of this somewhere secure.</p>
+<h2>Testing</h2>
+<p>To test your API token from the CLI, run the following in your project directory to ensure your token works:</p>
+<p><code>npm install -g snyk
+export SNYK_TOKEN=TOKEN_FROM_SNYK
+snyk test</code></p>
+<p>You should now be given a report of your project security.</p>
+<h2>Adding Variable to Gitlab CI</h2>
+<p>Now we need to save this as an environment variable available to the gitlab runner. Where you store this will depend on whether you wish this to be set on a project or group level. Go to the appropriate page on Gitlab for your requirement and go to Settings &gt; CI/CD &gt; Variables.</p>
+<h2>Create a new variable as follows:</h2>
+<p>Key: SNYK_TOKEN 
+Value: VALUE_FROM_SNYK</p>
+<h2>Integrating into your Pipeline</h2>
+<p>This guide assumes you already have your gitlab-ci.yaml file written, if you do not – See here for a getting started guide for building a pipeline file for Gitlab CI and a nodejs and docker container.</p>
+<p>Add the following into your gitlab-ci.yaml file (Assuming you are using a nodejs base image).
+<code>snyk:
+  only:
+    - master
+  stage: "Testing"
+  script:
+    - npm install -g snyk
+    - snyk test</code> </p></div>
+
+<div id="right">
+    <a href="https://tjtharrison.github.io/README.md">Github Pages</a>
+    <a href="https://github.com/tjtharrison/README.md">Github Repo</a>
+</div>

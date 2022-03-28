@@ -1,4 +1,3 @@
 markdown
-pdfkit
-wkhtmltopdf
 textblob
+glob
