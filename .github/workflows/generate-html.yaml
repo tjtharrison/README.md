@@ -21,3 +21,4 @@ jobs:
         with: 
           file_pattern: "docs/"
           commit_message: "Publishing pages from Markdown"
+          skip_checkout: true
