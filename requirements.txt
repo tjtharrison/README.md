@@ -1,4 +1,1 @@
 markdown
-pdfkit
-wkhtmltopdf
-textblob

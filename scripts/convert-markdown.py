@@ -1,38 +1,39 @@
 import sys
 import markdown
-import pdfkit
-from textblob import TextBlob
+import os
+import glob
 
-
-source_file = "README.md"
 header_file = "header.html"
 footer_file = "footer.html"
-destination_file = "docs/index.html"
+article_dir = "articles"
 
-print("Converting " + source_file + " to HTML")
+for file_name in glob.iglob('**/**.md', recursive=True):
 
-# Load Markdown content
-with open(source_file, 'r') as f:
-    text = f.read()
-    html = markdown.markdown(text, extensions=['attr_list','md_in_html'])
-    ## Fix paths from README
-    html = html.replace('./docs/', "")
+    print("Converting " + file_name + " to HTML")
 
-# Load header content
-with open(header_file, 'r') as h:
-    header = h.read()
+    if file_name == "README.md":
+        destination_file = "docs/index.html"
+    else:
+        destination_file = ("docs/" + file_name.split("/")[-1]).replace(".md",".html")
 
-# Load footer content
-with open(footer_file, 'r') as f:
-    footer = f.read()
+    # Load Markdown content
+    with open(file_name, 'r') as f:
+        text = f.read()
+        html = markdown.markdown(text, extensions=['attr_list','md_in_html'])
+        ## Fix paths from README
+        html = html.replace('./docs/', "")
 
+    # Load header content
+    with open(header_file, 'r') as h:
+        header = h.read()
 
-with open(destination_file, 'w') as a:
-    a.write(header)
-    a.write(html)
-    a.write(footer)
+    # Load footer content
+    with open(footer_file, 'r') as f:
+        footer = f.read()
 
-print(destination_file + " written!")
+    with open(destination_file, 'w') as a:
+        a.write(header)
+        a.write(html)
+        a.write(footer)
 
-# print("Storing PDF copy")
-# pdfkit.from_file(destination_file, 'docs/static/tjth.pdf')
+    print(destination_file + " written!")
