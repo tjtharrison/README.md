@@ -21,4 +21,3 @@ jobs:
         with: 
           file_pattern: "docs/"
           commit_message: "Publishing pages from Markdown"
-          add_options: 'docs/'
