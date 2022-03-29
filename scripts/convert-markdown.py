@@ -23,6 +23,12 @@ for file_name in glob.iglob('**/**.md', recursive=True):
         ## Fix paths from README
         html = html.replace('./docs/', "")
 
+        # Append header block
+        if "<!-- EndHead -->" in html:
+            html = html.replace("<!-- EndHead -->","</div></div>")
+        else:
+            html = "</div></div>" + html
+
     # Load header content
     with open(header_file, 'r') as h:
         header = h.read()
