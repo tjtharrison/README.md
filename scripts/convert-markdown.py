@@ -14,7 +14,7 @@ for file_name in glob.iglob('**/**.md', recursive=True):
     if file_name == "README.md":
         destination_file = "docs/index.html"
     else:
-        destination_file = ("docs/" + file_name.split("/")[-1]).replace(".md",".html")
+        destination_file = ("docs/" + file_name.replace(".md",".html"))
 
     # Load Markdown content
     with open(file_name, 'r') as f:
