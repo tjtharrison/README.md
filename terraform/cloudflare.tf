@@ -1,4 +1,4 @@
-resource "cloudflare_record" "tjth_cv" {
+resource "cloudflare_record" "tjth_readme" {
   for_each = toset(local.github_pages_ip_addresses)
   zone_id  = sensitive(local.cloudflare_zone_id)
   name     = local.custom_subdomain
