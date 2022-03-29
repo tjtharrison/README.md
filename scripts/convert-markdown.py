@@ -14,12 +14,12 @@ for file_name in glob.iglob('**/**.md', recursive=True):
     if file_name == "README.md":
         destination_file = "docs/index.html"
     else:
-        destination_file = ("docs/" + file_name.split("/")[-1]).replace(".md",".html")
+        destination_file = ("docs/" + file_name.replace(".md",".html"))
 
     # Load Markdown content
     with open(file_name, 'r') as f:
         text = f.read()
-        html = markdown.markdown(text, extensions=['attr_list','md_in_html'])
+        html = markdown.markdown(text, extensions=['attr_list','md_in_html','markdown.extensions.tables'])
         ## Fix paths from README
         html = html.replace('./docs/', "")
 

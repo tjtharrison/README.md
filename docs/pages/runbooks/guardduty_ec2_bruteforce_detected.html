@@ -1,0 +1,72 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/static/styles.css' />
+</head>
+
+<!-- <div id="header_block">
+</div> -->
+
+<div id="header_block">
+<div id="header_wrapper">
+</div></div><h1>Guardduty EC2 bruteforce detected</h1>
+<p>This guide will cover the process to follow when you have been made aware (Eg by AWS Guardduty) of a brute force attack against one of your instances.</p>
+<p>Runbook will cover action points below but the summary should be considered to be:</p>
+<ol>
+<li>Validate the alert (Is it correct)</li>
+<li>Isolate the instance</li>
+<li>Assess damage</li>
+<li>Longer term remediations</li>
+</ol>
+<p>Another important note is to ensure that you take lots of notes of actions taken at each stage so a timeline can be built for later analysis and review.</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Details</th>
+<th>Owner</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gather information</td>
+<td>Collect details of the instance (Location, function, source IP of the attack)</td>
+<td>Incident engineer</td>
+</tr>
+<tr>
+<td>Validate alarm</td>
+<td>Is the concern valid? Is there an external actor acting maliciously against your instance or is someone trying to clone a git repository from the instance with their wrong ssh key (it happens!)</td>
+<td>Incident engineer</td>
+</tr>
+<tr>
+<td>Block Access</td>
+<td>If the threat is malicious, block access to the instance imediately. There should be no reason for port 22 to be exposed to 0.0.0.0/0. If the attack is coming from an allowed IP, remove the rule allowing access.</td>
+<td>Incident engineer</td>
+</tr>
+<tr>
+<td>Assessing Compromise</td>
+<td>Finally, review the instance logs to determine if the attacker had successfully compromised the instance. Read separate runbook on this topic</td>
+<td>Incident engineer</td>
+</tr>
+<tr>
+<td>Complete report</td>
+<td>Write up all notes using template and submit an incident report (following your incident management procedure).</td>
+<td>Incident engineer</td>
+</tr>
+</tbody>
+</table>
+<p>Longer term solutions:
+* Investigate using AWS Config to mark Security Groups as non-compliant if they contain port 22 exposed to the internet.
+* Suggest training to the team about why port 22 should not be exposed to the internet</p></div>
+
+<div id="right">
+    <a href="https://tjtharrison.github.io/README.md">Github Pages</a>
+    <a href="https://github.com/tjtharrison/README.md">Github Repo</a>
+    <a href="/site-map">All Articles</a>
+</div>
