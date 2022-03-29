@@ -3,6 +3,8 @@ name: generate-html
 on:
   pull_request:
   workflow_dispatch:
+  paths:
+    - '**.md'
 
 jobs:
   build:
