@@ -2,9 +2,10 @@ name: terraform-pr
 
 on:
   pull_request:
+    paths:
+      - '**.tf'
   workflow_dispatch:
-  paths:
-    - '**.tf'
+
 
 jobs:
   build:
