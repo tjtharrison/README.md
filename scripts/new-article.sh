@@ -1,6 +1,6 @@
 #!/bin/bash
 
-article_dir="articles"
+article_dir="pages"
 
 echo "What would you like to name your article?"
 read nice_name
