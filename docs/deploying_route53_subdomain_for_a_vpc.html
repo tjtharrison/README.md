@@ -1,0 +1,64 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='static/styles.css' />
+</head>
+
+<!-- <div id="header_block">
+</div> -->
+
+<div id="header_block">
+<div id="header_wrapper">
+</div></div><h1>Deploying Route53 Subdomain for a VPC</h1>
+<p>How to create a Subdomain for a VPC (Eg [vpcname].int.[yourdomain].com).
+This is useful for allowing ec2 instances to connect to each other with custom domain names rather than the internal DNS name automatically created by AWS when You create an ec2 instance.</p>
+<h2>Setting up the Subdomain in Route 53:</h2>
+<ul>
+<li>Open up Route53 Control Panel and Create a new Hosted Zone</li>
+<li>Enter Your Subdomain (Eg [vpcname].int.[yourdomain].com)</li>
+<li>Select Type “Private Hosted Zone for Amazon VPC”</li>
+<li>Select Your VPC ID</li>
+</ul>
+<h2>Creating a Record:</h2>
+<ul>
+<li>Select Your hosted zone via the Route 53 Hosted Zones Page</li>
+<li>Click “Create Record Set” at the top of the page</li>
+<li>Add Your DNS Record (Eg an A record for one of Your EC2 Instances)</li>
+</ul>
+<h2>Setting up Your DNS Host:</h2>
+<ul>
+<li>With Your Hosted Zone selected in the Route 53 panel, select the NS (NameServer) records and copy the 3 AWS Nameservers from the “value” field on the right hand side.</li>
+<li>Open up Your DNS Provider and create 3x DNS records with Your subdomain as the Host and the 4 Nameservers provided by AWS as the values for these records.</li>
+</ul>
+<h2>Enabling the Hosted Zone in Your VPC:</h2>
+<ul>
+<li>Open up the VPC Console and select Your VPC that You setup the Route 53 Endpoint for</li>
+<li>Go to the Tags page and create the following two tags:</li>
+<li>enableDnsHostnames: true</li>
+<li>enableDnsSupport: true</li>
+</ul>
+<h2>Setting the FQDN Domain for the VPC:</h2>
+<p>In order to be able to resolve DNS names without the full fqdn (Eg resolving just “db” rather than having to use “db.myvpc.int.mydomain.com”) You need to update the DHCP Option Set for the VPC to provide this Domain via DHCP.</p>
+<ul>
+<li>Open the VPC Console and select “DHCP Options Set” on the left hand side</li>
+<li>Click “Create DHCP options set” at the top of the page and create a new Option set with the following settings configured:</li>
+<li>Name: [Your VPC Name]</li>
+<li>Domain Name: The full domain You created earlier (Eg [vpcname].int.[yourdomain].com)</li>
+<li>Domain name servers: AmazonProvidedDNS</li>
+<li>NTP Servers: 169.254.169.123</li>
+<li>Go back to the “Your VPC” page and select Your VPC that You setup the Route53 Subdomain for.</li>
+<li>Go to “Actions” and select “Edit DHCP Options set” and select Your new DHCP Option Set</li>
+</ul>
+<p>To immediately test the DNS resolution You can reboot one of Your instances on the VPC and ensure You can ping one of the A records You created.</p></div>
+
+<div id="right">
+    <a href="https://tjtharrison.github.io/README.md">Github Pages</a>
+    <a href="https://github.com/tjtharrison/README.md">Github Repo</a>
+    <a href="/site-map">All Articles</a>
+</div>

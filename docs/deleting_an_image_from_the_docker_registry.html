@@ -1,0 +1,42 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='static/styles.css' />
+</head>
+
+<!-- <div id="header_block">
+</div> -->
+
+<div id="header_block">
+<div id="header_wrapper">
+</div></div><h1>Deleting an image from the Docker Registry</h1>
+<p>There is no inbuilt method within the docker provided docker registry so follow the below process to delete images from the registry:</p>
+<p>Project repository: <a href="https://github.com/burnettk/delete-docker-registry-image">https://github.com/burnettk/delete-docker-registry-image</a></p>
+<h2>Downloading Script:</h2>
+<p><code>curl https://raw.githubusercontent.com/burnettk/delete-docker-registry-image/master/delete_docker_registry_image.py | sudo tee /scripts/delete-docker-image.py &gt;/dev/null
+sudo chmod a+x /scripts/delete-docker-image.py</code></p>
+<h2>Setting up the Script:</h2>
+<p>In order to setup the script, you will need to export the environment variable used within the script to specify the Docker registry directory – Adjust this as appropriate for your registry.</p>
+<p>Note: This should be set to one level up from the “registry” directory which contains one directory per-docker image on the server.
+<code>export REGISTRY_DATA_DIR=/mnt/docker-registry/data/docker/registry/v2/</code></p>
+<p>Eg my Docker images are stored within <code>/mnt/docker-registry/data/docker/registry/v2/repositories/</code></p>
+<h2>Running the Script:</h2>
+<p>Before attempting to delete images you should first stop the Docker container to ensure there are no race conditions (Note this from the Documentation for the Project).</p>
+<p><code>sudo docker-compose stop</code></p>
+<p>Once the container is stopped, you can run the <code>delete-docker-image.py</code> script with the <code>–dry-run</code> flag to simply print what images and layers will be deleted before removing the flag and running it for real (If you are satisfied with the output).</p>
+<p><code>/scripts/delete-docker-image.py --image example-image --dry-run
+/scripts/delete-docker-image.py --image example-image</code>
+Once the files have deleted you can start the registry once more:
+<code>sudo docker-compose up -d</code></p></div>
+
+<div id="right">
+    <a href="https://tjtharrison.github.io/README.md">Github Pages</a>
+    <a href="https://github.com/tjtharrison/README.md">Github Repo</a>
+    <a href="/site-map">All Articles</a>
+</div>
