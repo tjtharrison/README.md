@@ -19,7 +19,7 @@ for file_name in glob.iglob('**/**.md', recursive=True):
     # Load Markdown content
     with open(file_name, 'r') as f:
         text = f.read()
-        html = markdown.markdown(text, extensions=['attr_list','md_in_html'])
+        html = markdown.markdown(text, extensions=['attr_list','md_in_html','markdown.extensions.tables'])
         ## Fix paths from README
         html = html.replace('./docs/', "")
 
