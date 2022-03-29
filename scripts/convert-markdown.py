@@ -16,6 +16,9 @@ for file_name in glob.iglob('**/**.md', recursive=True):
     else:
         destination_file = ("docs/" + file_name.replace(".md",".html"))
 
+    page_file = destination_file.split("/")[-1].replace(".html","")
+    index_file = destination_file.rsplit("/", 1)[0] + "/index.html"
+
     # Load Markdown content
     with open(file_name, 'r') as f:
         text = f.read()
@@ -37,9 +40,16 @@ for file_name in glob.iglob('**/**.md', recursive=True):
     with open(footer_file, 'r') as f:
         footer = f.read()
 
+    # Build file
     with open(destination_file, 'w') as a:
         a.write(header)
         a.write(html)
         a.write(footer)
+
+    if file_name != "README.md":
+        # Update index
+        print("Updating index: " + index_file)
+        with open(index_file, 'a') as i:
+            i.write("<a href=" + page_file + ">" + page_file + "</a>\n")
 
     print(destination_file + " written!")
