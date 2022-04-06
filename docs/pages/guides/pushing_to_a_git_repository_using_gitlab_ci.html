@@ -21,7 +21,7 @@
         <h2>Tim Harrison</h2>
         <h3>Infrastructure Security Team Lead</h3>
 
-        <ul>
+        <ul class="navigation">
             <li><a href="/">Home</a></li>
             <li><a href="/pages/runbooks/">Runbooks</a></li>
             <li><a href="/pages/guides">Guides</a></li>
@@ -38,7 +38,8 @@
     </div>
 </div>
 
-</div></div><h1>Pushing to a git repository using Gitlab CI</h1>
+<div id="body">
+    </div></div><h1>Pushing to a git repository using Gitlab CI</h1>
 <p>Recently I have been migrating a Jenkins environment to Gitlab CI for automated builds. One thing that was not immediately clear from the documentation on how to push back to your Git repository during the build pipeline.</p>
 <p>This process was used heavily throughout the process to automate the bumping of versions in npm package.json files and committing these back to the git branch once bumped.</p>
 <p>The first step to acheive this is to create a Personal access token for your account with read and write access to your projects. On Gitlab.com you can use the link below:</p>
@@ -80,3 +81,4 @@ image: node:latest</p>
     ## Push back to Gitlab using secret token created earlier with "skip-ci" option to stop builds triggering in a loop
     - git push "https://${GITLAB_USER_NAME}:${CI_ACCESS_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_REF_NAME}" -o skip-ci
 ```</p>
+</div>
