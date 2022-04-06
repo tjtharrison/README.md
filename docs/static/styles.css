@@ -28,19 +28,19 @@ body {
     color: #B79E74;
 }
 
-ul li {
+ul.navigation li {
     display: inline-block;
 
 }
 
-ul li a {
+ul.navigation li a {
     text-decoration: none;
     color: #31aa58;
     padding:10px;
     border-radius:4px;
 }
 
-ul li a:hover {
+ul.navigation li a:hover {
     text-decoration: none;
     background: grey;
     color:#E1E1E1;
