@@ -3,9 +3,7 @@ import markdown
 import os
 import glob
 
-header_file = "header.html"
-footer_file = "footer.html"
-article_dir = "articles"
+template_file = "template.html"
 
 for file_name in glob.iglob('**/**.md', recursive=True):
 
@@ -33,23 +31,21 @@ for file_name in glob.iglob('**/**.md', recursive=True):
             html = "</div></div>" + html
 
     # Load header content
-    with open(header_file, 'r') as h:
-        header = h.read()
-
-    # Load footer content
-    with open(footer_file, 'r') as f:
-        footer = f.read()
+    with open(template_file, 'r') as t:
+        completed_template = t.read().replace("{{ BODY }}", html)
 
     # Build file
     with open(destination_file, 'w') as a:
-        a.write(header)
-        a.write(html)
-        a.write(footer)
+        a.write(completed_template)
 
     if file_name != "README.md":
         # Update index
         print("Updating index: " + index_file)
-        with open(index_file, 'a') as i:
-            i.write("<a href=" + page_file + ">" + page_file + "</a>\n")
+        index_entry = "<a href=" + page_file + ">" + page_file + "</a>\n"
+        with open(index_file) as i:
+            if index_entry not in i.read():
+                print("Index entry not present, writing")
+                with open(index_file, 'a') as w:
+                    w.write(index_entry)
 
     print(destination_file + " written!")

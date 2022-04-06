@@ -10,11 +10,9 @@
     <link rel='stylesheet' href='/static/styles.css' />
 </head>
 
-<!-- <div id="header_block">
-</div> -->
-
 <div id="header_block">
 <div id="header_wrapper">
+
 </div></div><h1>Deleting an image from the Docker Registry</h1>
 <p>There is no inbuilt method within the docker provided docker registry so follow the below process to delete images from the registry:</p>
 <p>Project repository: <a href="https://github.com/burnettk/delete-docker-registry-image">https://github.com/burnettk/delete-docker-registry-image</a></p>
@@ -33,7 +31,7 @@ sudo chmod a+x /scripts/delete-docker-image.py</code></p>
 <p><code>/scripts/delete-docker-image.py --image example-image --dry-run
 /scripts/delete-docker-image.py --image example-image</code>
 Once the files have deleted you can start the registry once more:
-<code>sudo docker-compose up -d</code></p></div>
+<code>sudo docker-compose up -d</code></p>
 
 <div id="right">
     <a href="https://tjtharrison.github.io/README.md">Github Pages</a>
