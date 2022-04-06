@@ -46,7 +46,11 @@ ul li a:hover {
     color:#E1E1E1;
 }
 
-img[alt="Me"] {
+img[alt="me"] {
+    display:none;
+}
+
+img.me {
     border-radius:50%;
     border: solid 5px #153823;
     height:250px;
@@ -62,4 +66,12 @@ ul {
     padding:0;
     width:100%;
     height:20px;
+}
+
+p.deploy_message {
+    font-style: italic;
+}
+
+.md {
+    display: none;
 }
