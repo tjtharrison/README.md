@@ -12,11 +12,13 @@ sudo apt-get install openssh-server putty-tools
 
 ## Converting from Putty PPK to Openssh:
 -O specifies the output type, -o specifies the output filename:
+
 ```
 puttygen id_rsa.ppk -O private-openssh -o id_rsa
 ```
 
 ## Converting Openssh private key to Putty PPK:
+
 ```
 puttygen id_rsa -o id_rsa.ppk
 ```

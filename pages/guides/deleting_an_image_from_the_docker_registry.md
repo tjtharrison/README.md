@@ -35,7 +35,9 @@ Once the container is stopped, you can run the `delete-docker-image.py` script w
 /scripts/delete-docker-image.py --image example-image --dry-run
 /scripts/delete-docker-image.py --image example-image
 ```
+
 Once the files have deleted you can start the registry once more:
+
 ```
 sudo docker-compose up -d
 ```

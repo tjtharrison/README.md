@@ -18,27 +18,23 @@ The below is a very simple gitlab-ci.yaml file which simply clones your reposito
 
 ```
 image: node:latest
-
 stages:
   - "Git checkout"
   - "Prepare Build"
   - "Bump Version"
   - "commit"
-
 git-pull:
   stage: "Git checkout"
   script:
     - git checkout $CI_COMMIT_BRANCH
     - git pull
     - git status
-
 npm-bump:
   ## Bump the project version
   stage: "Bump Version"
   script:
     - echo "Bumping project version"
     - npm version --no-git-tag-version patch
-
 commit-files:
   ## Commit new files back to master branch
   stage: commit

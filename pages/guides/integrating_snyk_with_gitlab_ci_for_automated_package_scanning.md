@@ -34,6 +34,7 @@ Value: VALUE_FROM_SNYK
 This guide assumes you already have your gitlab-ci.yaml file written, if you do not – See here for a getting started guide for building a pipeline file for Gitlab CI and a nodejs and docker container.
 
 Add the following into your gitlab-ci.yaml file (Assuming you are using a nodejs base image).
+
 ```
 snyk:
   only:
