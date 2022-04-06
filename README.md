@@ -1,10 +1,8 @@
-![Me](./docs/img/timh.png)
-## Tim Harrison
-### Infrastructure Security Team Lead
+![me](./docs/img/timh.png)
+## Tim Harrison { .md }
+### Infrastructure Security Team Lead { .md }
 
-<!-- EndHead -->
-
-## About Me {.main}
+## About Me
 
 <span class="green">Aim: </span>To use my technical expertise and excellent communication skills to help a team achieve success.
 
@@ -70,7 +68,7 @@ I have lead the building of our internal DevOps team focusing on migrating servi
                         
 ## Education
 
-<span class="green">AWS DevOps Professional:</span> I am currently working on my AWS DevOps Professional training and aim to complete the certification in Q1 2022.
+<span class="green">AWS DevOps Professional:</span> I am currently working on my AWS DevOps Professional training and aim to complete the certification in early 2022.
                         
 <span class="green">Additional Courses:</span> Udemy Courses in ITIL, Python, Kubernetes, AWS Security Specialist, AWS DevOps Professional, Scrum/Agile.
 
@@ -83,10 +81,3 @@ I have lead the building of our internal DevOps team focusing on migrating servi
 <span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Python3, however, also using JavaScript), deploying via IAC into AWS.
 
 <span class="green">Coding Games:</span> I also spent time on coding websites such as [https://codingame.com](https://codingame.com) which helps me improve my coding efficiency.
-
-## Websites
-
-* [Website](https://tjth.co)
-* [Credly](https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url)
-* [Github](https://github.com/tjtharrison)
-* [LinkedIn](https://www.linkedin.com/in/tim-harrison-47b11159/)
