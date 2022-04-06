@@ -3,7 +3,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
         integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
@@ -11,7 +11,32 @@
 </head>
 
 <div id="header_block">
-<div id="header_wrapper">
+    <p class="deploy_message">This site has been deployed from Github repository <a
+            href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
+    <div id="header_wrapper">
+
+
+        <p><img class="me" src="img/timh.png" /></p>
+
+        <h2>Tim Harrison</h2>
+        <h3>Infrastructure Security Team Lead</h3>
+
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/runbooks/">Runbooks</a></li>
+            <li><a href="/pages/guides">Guides</a></li>
+            <li><a target="_blank"
+                    href="https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url">Credly <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://github.com/tjtharrison">Github <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/tim-harrison-47b11159/"> LinkedIn <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+
+
+    </div>
+</div>
 
 </div></div><h1>Guardduty EC2 bruteforce detected</h1>
 <p>This guide will cover the process to follow when you have been made aware (Eg by AWS Guardduty) of a brute force attack against one of your instances.</p>
@@ -62,9 +87,3 @@
 <p>Longer term solutions:
 * Investigate using AWS Config to mark Security Groups as non-compliant if they contain port 22 exposed to the internet.
 * Suggest training to the team about why port 22 should not be exposed to the internet</p>
-
-<div id="right">
-    <a href="https://tjtharrison.github.io/README.md">Github Pages</a>
-    <a href="https://github.com/tjtharrison/README.md">Github Repo</a>
-    <a href="/site-map">All Articles</a>
-</div>
