@@ -2,8 +2,6 @@ name: generate-html
 
 on:
   pull_request:
-    paths:
-      - '**.md'
   workflow_dispatch:
 
 
