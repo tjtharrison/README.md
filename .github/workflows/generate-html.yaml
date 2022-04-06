@@ -2,8 +2,11 @@ name: generate-html
 
 on:
   pull_request:
+    paths:
+      - '**.md'
+      - 'scripts/convert-markdown.py'
+      - 'template.html'
   workflow_dispatch:
-
 
 jobs:
   build:

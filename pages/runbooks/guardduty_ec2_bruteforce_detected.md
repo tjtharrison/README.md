@@ -20,5 +20,6 @@ Another important note is to ensure that you take lots of notes of actions taken
 | Complete report | Write up all notes using template and submit an incident report (following your incident management procedure). | Incident engineer |
 
 Longer term solutions:
+
 * Investigate using AWS Config to mark Security Groups as non-compliant if they contain port 22 exposed to the internet.
 * Suggest training to the team about why port 22 should not be exposed to the internet

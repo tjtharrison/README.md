@@ -39,14 +39,18 @@
 </div>
 
 <div id="body">
-    </div></div><h1>Converting Putty and Openssh Private Keys</h1>
-<p>This is something that I have had to do time and time again, to convert between openssh and putty private keys for Windows users who also dabble with linux servers.</p>
-<p>All of these commands should be run on an Ubuntu server.</p>
-<p>Before proceeding, ensure you have both openssh and putty-tools installed:</p>
-<p><code>sudo apt-get install openssh-server putty-tools</code></p>
-<h2>Converting from Putty PPK to Openssh:</h2>
-<p>-O specifies the output type, -o specifies the output filename:</p>
-<p><code>puttygen id_rsa.ppk -O private-openssh -o id_rsa</code></p>
-<h2>Converting Openssh private key to Putty PPK:</h2>
-<p><code>puttygen id_rsa -o id_rsa.ppk</code></p>
+    </div></div><h1>Issues with DNS resolution on Openvpn from Windows 10</h1>
+<p>This guide will resolve issues with DNS resolution on Windows 10 when connected to Openvpn.</p>
+<h2>Symptoms:</h2>
+<p>Unable to resolve internal DNS names on the VPN destinaton network.</p>
+<p>DNS Server for the machine is an external DNS server (Eg below should report the DNS server to be the internal DNS server).</p>
+<p><code>C:\Users\User&gt;nslookup 
+Default Server:  cache1.service.virginmedia.net 
+Address:  194.168.4.100</code></p>
+<h2>The Cause:</h2>
+<p>This is caused by Windows incorrectly assigning the metrics for the interfaces so the VPN does not take priority over the internal network.</p>
+<h2>The Fix:</h2>
+<p>The fix for this is to manually set the metric for the VPN NIC to be lower than that of the local NIC.</p>
+<p>Edit the VPN NIC, disable “Automatic metric“ and set the metric to “1“ or some other low number</p>
+<p>If this does not fix the issue, edit the NIC used for the local network and repeat the process, setting the metric higher (Eg “15“).</p>
 </div>
