@@ -38,14 +38,5 @@ for file_name in glob.iglob('**/**.md', recursive=True):
     with open(destination_file, 'w') as a:
         a.write(completed_template)
 
-    if file_name != "README.md":
-        # Update index
-        print("Updating index: " + index_file)
-        index_entry = "<a href=" + page_file + ">" + page_file + "</a>\n"
-        with open(index_file) as i:
-            if index_entry not in i.read():
-                print("Index entry not present, writing")
-                with open(index_file, 'a') as w:
-                    w.write(index_entry)
-
     print(destination_file + " written!")
+
