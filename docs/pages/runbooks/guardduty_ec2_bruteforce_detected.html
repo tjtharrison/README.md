@@ -21,7 +21,7 @@
         <h2>Tim Harrison</h2>
         <h3>Infrastructure Security Team Lead</h3>
 
-        <ul>
+        <ul class="navigation">
             <li><a href="/">Home</a></li>
             <li><a href="/pages/runbooks/">Runbooks</a></li>
             <li><a href="/pages/guides">Guides</a></li>
@@ -38,7 +38,8 @@
     </div>
 </div>
 
-</div></div><h1>Guardduty EC2 bruteforce detected</h1>
+<div id="body">
+    </div></div><h1>Guardduty EC2 bruteforce detected</h1>
 <p>This guide will cover the process to follow when you have been made aware (Eg by AWS Guardduty) of a brute force attack against one of your instances.</p>
 <p>Runbook will cover action points below but the summary should be considered to be:</p>
 <ol>
@@ -87,3 +88,4 @@
 <p>Longer term solutions:
 * Investigate using AWS Config to mark Security Groups as non-compliant if they contain port 22 exposed to the internet.
 * Suggest training to the team about why port 22 should not be exposed to the internet</p>
+</div>

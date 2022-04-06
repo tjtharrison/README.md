@@ -21,7 +21,7 @@
         <h2>Tim Harrison</h2>
         <h3>Infrastructure Security Team Lead</h3>
 
-        <ul>
+        <ul class="navigation">
             <li><a href="/">Home</a></li>
             <li><a href="/pages/runbooks/">Runbooks</a></li>
             <li><a href="/pages/guides">Guides</a></li>
@@ -38,7 +38,8 @@
     </div>
 </div>
 
-</div></div><h1>Converting Putty and Openssh Private Keys</h1>
+<div id="body">
+    </div></div><h1>Converting Putty and Openssh Private Keys</h1>
 <p>This is something that I have had to do time and time again, to convert between openssh and putty private keys for Windows users who also dabble with linux servers.</p>
 <p>All of these commands should be run on an Ubuntu server.</p>
 <p>Before proceeding, ensure you have both openssh and putty-tools installed:</p>
@@ -48,3 +49,4 @@
 <code>puttygen id_rsa.ppk -O private-openssh -o id_rsa</code></p>
 <h2>Converting Openssh private key to Putty PPK:</h2>
 <p><code>puttygen id_rsa -o id_rsa.ppk</code></p>
+</div>

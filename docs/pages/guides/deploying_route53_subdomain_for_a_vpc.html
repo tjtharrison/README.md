@@ -21,7 +21,7 @@
         <h2>Tim Harrison</h2>
         <h3>Infrastructure Security Team Lead</h3>
 
-        <ul>
+        <ul class="navigation">
             <li><a href="/">Home</a></li>
             <li><a href="/pages/runbooks/">Runbooks</a></li>
             <li><a href="/pages/guides">Guides</a></li>
@@ -38,7 +38,8 @@
     </div>
 </div>
 
-</div></div><h1>Deploying Route53 Subdomain for a VPC</h1>
+<div id="body">
+    </div></div><h1>Deploying Route53 Subdomain for a VPC</h1>
 <p>How to create a Subdomain for a VPC (Eg [vpcname].int.[yourdomain].com).
 This is useful for allowing ec2 instances to connect to each other with custom domain names rather than the internal DNS name automatically created by AWS when You create an ec2 instance.</p>
 <h2>Setting up the Subdomain in Route 53:</h2>
@@ -79,3 +80,4 @@ This is useful for allowing ec2 instances to connect to each other with custom d
 <li>Go to “Actions” and select “Edit DHCP Options set” and select Your new DHCP Option Set</li>
 </ul>
 <p>To immediately test the DNS resolution You can reboot one of Your instances on the VPC and ensure You can ping one of the A records You created.</p>
+</div>
