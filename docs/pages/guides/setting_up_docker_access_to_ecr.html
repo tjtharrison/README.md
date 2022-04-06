@@ -39,14 +39,14 @@
 </div>
 
 <div id="body">
-    </div></div><h1>Converting Putty and Openssh Private Keys</h1>
-<p>This is something that I have had to do time and time again, to convert between openssh and putty private keys for Windows users who also dabble with linux servers.</p>
-<p>All of these commands should be run on an Ubuntu server.</p>
-<p>Before proceeding, ensure you have both openssh and putty-tools installed:</p>
-<p><code>sudo apt-get install openssh-server putty-tools</code></p>
-<h2>Converting from Putty PPK to Openssh:</h2>
-<p>-O specifies the output type, -o specifies the output filename:</p>
-<p><code>puttygen id_rsa.ppk -O private-openssh -o id_rsa</code></p>
-<h2>Converting Openssh private key to Putty PPK:</h2>
-<p><code>puttygen id_rsa -o id_rsa.ppk</code></p>
+    </div></div><h1>Setting up Docker access to ECR</h1>
+<p>How to configure Your local Docker client to Authenticate with AWS ECR (Elastic Container Registry) for accessing Docker images.</p>
+<p>This guide assumes You have programatic access to AWS via Access Token etc. If You are setting up a shared machine, use credentials stored in keepass for docker-registry.</p>
+<p>Firstly install configure Your aws cli client (Note, this requires the unzip package to be installed):</p>
+<p><code>curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws configure</code></p>
+<p>When Your aws cli is configured, run the below to Authenticate Your Docker with the AWS ECR:</p>
+<p><code>aws ecr get-login-password --region [your region] | docker login --username AWS --password-stdin https://[your account].dkr.ecr.[your region].amazonaws.com</code></p>
 </div>
