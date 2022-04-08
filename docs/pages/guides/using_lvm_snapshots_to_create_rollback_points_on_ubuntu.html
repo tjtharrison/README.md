@@ -1,0 +1,78 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/static/styles.css' />
+    <link rel='stylesheet' href='/static/mobile.css' />
+</head>
+
+<div id="header_block">
+    <p class="deploy_message">This site has been deployed from Github repository <a
+            href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
+    <div id="header_wrapper">
+
+
+        <p><img class="me" src="/img/timh.png" /></p>
+
+        <h2>Tim Harrison</h2>
+        <h3>Infrastructure Security Team Lead</h3>
+
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/runbooks/">Runbooks</a></li>
+            <li><a href="/pages/guides">Guides</a></li>
+            <li><a target="_blank"
+                    href="https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url">Credly <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://github.com/tjtharrison">Github <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/tim-harrison-47b11159/"> LinkedIn <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+
+
+    </div>
+</div>
+
+<div id="body">
+    </div></div><h1>Using LVM Snapshots to create rollback points on Ubuntu</h1>
+<p>For the completeness of this guide, I have added a second disk to my Ubuntu server to store the lvm snapshots on (See here for doing this without rebooting in a vitual environment). For this guide I will be taking / restoring Snapshots of my root partition (Eg which could be used to rollback after update installation) though you can adjust the necessary commands below to use any LVM volume you require.</p>
+<h2>Adding another disk to Volume Group:</h2>
+<p>Create a new partition on the second disk (Eg /dev/sdb1)</p>
+<p>Make this disk into a physical disk availabe to lvm</p>
+<p><code>pvcreate /dev/sdb1</code></p>
+<p>You can now add this to your Volume Group for the Logical Volume that you will be taking a snapshot of – You can get the name of this from vgscan:</p>
+<p><code>root@tjth-ubuntu:/home/tim# vgscan
+VG #PV #LV #SN Attr VSize VFree 
+ubuntu-vg 1 2 0 wz--n- &lt;10.00g 36.00m
+vgextend ubuntu-vg /dev/sdb1</code></p>
+<p>You will see now that there is an additional 10GB of storage available now for snapshots:</p>
+<p><code>root@tjth-ubuntu:/home/tim# vgscan
+VG #PV #LV #SN Attr VSize VFree 
+ubuntu-vg 2 2 0 wz--n- 19.99g 10.03g</code></p>
+<p>We are now ready to take a snapshot of our Logical Volume onto the new storage in the Volume Group.</p>
+<h2>Taking a Snapshot:</h2>
+<p>Snapshots can be created any size in the available space but note that it will only allow for this many file changes to be recoverable in the event of a restore. Eg if you create a 1GB snapshot volume but change 1.5GB of data the snapshot restore point will become invalid. It is possible to monitor and extend the snapshot volume (see here for instructions) so adjust the below as necessary to create a suitable size snapshot for your requirement:</p>
+<p>To get a list of your Logical Volumes, run the below command:</p>
+<p><code>root@tjth-ubuntu:/home/tim# lvscan
+ACTIVE '/dev/ubuntu-vg/root' [&lt;9.01 GiB] inherit
+ACTIVE '/dev/ubuntu-vg/swap_1' [976.00 MiB] inherit</code></p>
+<p>You can now create your snapshot using the logical volume name from the above</p>
+<p><code>lvcreate --size 5G --snapshot --name ubuntu_snap /dev/ubuntu-vg/root</code></p>
+<p>You can confirm this has been taken successfully by running lvscan again</p>
+<p><code>root@tjth-ubuntu:/home/tim# lvscan
+ACTIVE Original '/dev/ubuntu-vg/root' [&lt;9.01 GiB] inherit
+ACTIVE '/dev/ubuntu-vg/swap_1' [976.00 MiB] inherit
+ACTIVE Snapshot '/dev/ubuntu-vg/ubuntu_snap' [5.00 GiB] inherit</code></p>
+<h2>Deleting the Snapshot:</h2>
+<p>To delete the snapshot and keep all of the changes since the snapshot was taken, you can use the lvremove command:</p>
+<p><code>lvremove /dev/ubuntu-vg/ubuntu_snap</code></p>
+<h2>Reverting to the Snapshot:</h2>
+<p>To revert to the snapshot, run the below command. Note: Active partitions (Eg currently mounted) will be reverted after a server reboot. To avoid this, you can unmount the volume before reverting (unless you are working with the root volume).</p>
+<p><code>lvconvert --merge /dev/ubuntu-vg/ubuntu_snap</code></p>
+</div>

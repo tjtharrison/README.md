@@ -1,0 +1,80 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/static/styles.css' />
+    <link rel='stylesheet' href='/static/mobile.css' />
+</head>
+
+<div id="header_block">
+    <p class="deploy_message">This site has been deployed from Github repository <a
+            href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
+    <div id="header_wrapper">
+
+
+        <p><img class="me" src="/img/timh.png" /></p>
+
+        <h2>Tim Harrison</h2>
+        <h3>Infrastructure Security Team Lead</h3>
+
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/runbooks/">Runbooks</a></li>
+            <li><a href="/pages/guides">Guides</a></li>
+            <li><a target="_blank"
+                    href="https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url">Credly <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://github.com/tjtharrison">Github <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/tim-harrison-47b11159/"> LinkedIn <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+
+
+    </div>
+</div>
+
+<div id="body">
+    </div></div><h1>Installing ISTIO on Kubernetes</h1>
+<p>This guide will walk You through the basics of installing all ISTIO features via the “Demo” deployment.</p>
+<p>This guide assumes You have a fully functioning Kubernetes Cluster and are running Ubuntu on Your Desktop to install the istioctl package.</p>
+<h2>Installing Istioctl</h2>
+<p>Run the following commands to install istioctl on your Desktop (By downloading the Directory via the ISTIO installation script and creating a symbolic link to your bin directory:</p>
+<p><code>cd /opt/
+curl -L https://istio.io/downloadIstio | sh -
+mv istio-1.4.3 istio &amp;&amp; cd istio
+ln -s $PWD/istioctl /usr/bin/</code></p>
+<p>You can verify that istio is installed by running the following:</p>
+<p><code>istioctl help</code></p>
+<h2>Installing ISTIO on Your Kubernetes Cluster:</h2>
+<p>There are various options when it comes to installing Istio (Varying in features). If You are just starting out, it is best to deploy the demo configuration (With all packages) So you can test all of the features before deciding which You will continue to use.</p>
+<p>To install the demo ISTIO configuration, run the below istioctl command:</p>
+<p><code>istioctl manifest apply --set profile=demo</code></p>
+<p>This will take some time to download and deploy all of the ISTIO services – You can watch the progress by running the following (Based on a default install):</p>
+<p><code>watch -n 0.2 kubectl get pods -n istio-system</code></p>
+<p>Once the Pods have deployed You are ready to go!</p>
+<h2>Enabling ISTIO for Your Namespace:</h2>
+<p>By default, ISTIO will not be enabled on any Namespaces so you will not start getting metrics / monitoring information from Your cluster until it is enabled.</p>
+<p>Istio Namespace deployment is acheived by adding a tag to your Namespace as follows (Adjust namespace as required for your Cluster) before restarting the pods in Your Namespace:</p>
+<p><code>kubectl label namespace [namespace] istio-injection=enabled
+namespace=[namespace]; kubectl rollout restart deployment $(kubectl get deployments -n $namespace | awk {'print $1'}) -n $namespace</code></p>
+<p>To disable again if You encounter issues with the default configuartion, simply run the same command with “disabled” Eg:</p>
+<p><code>kubectl label namespace [namespace] istio-injection=disabled</code></p>
+<p>Accessing Services:
+Typically on my Kubernetes Clusters I will use LoadBalancers to access external services. If you are running a Bare Metal cluster – See my guide here on installing MetalLB to run Load Balancers in a Bare Metal Environment.</p>
+<p>To access one of the Dashboards (Eg Kiali) via a Load Balancer, simply edit the service and change the Type to “LoadBalancer” (As below) – You will then get an external address from which to Log in.</p>
+<p>```
+kubectl edit svc -n istio-system kiali</p>
+<p>type: LoadBalancer</p>
+<p>tim@tjth-desktop:/opt$ kubectl get svc -n istio-system | grep "kiali"
+kiali LoadBalancer 10.96.249.239 192.168.1.102 20001:30388/TCP 20m
+```</p>
+<h2>Uninstalling Istio:</h2>
+<p>To uninstall Istio (Provided You used the istioctl installation command above) You can simply run the following:</p>
+<p><code>istioctl manifest generate --set profile=demo | kubectl delete -f -</code></p>
+</div>
