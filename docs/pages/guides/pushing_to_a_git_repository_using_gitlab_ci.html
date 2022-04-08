@@ -8,6 +8,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='/static/styles.css' />
+    <link rel='stylesheet' href='/static/mobile.css' />
 </head>
 
 <div id="header_block">
@@ -48,26 +49,25 @@
 <p>The next stage is to go to the Settings &gt; CI/CD &gt; Variables for either your project or the containing group if you wish to use this key across multiple projects.</p>
 <p>Create a new variable here named CI_ACCESS_TOKEN (Or similar, if you use something different here – Ensure you make a note!) with the value as the access token you generated in the previous step. With this being a password you should ensure to mask the variable so that it is not printed in your CI logs.</p>
 <p>The below is a very simple gitlab-ci.yaml file which simply clones your repository, bumps using the npm version command, before pushing the changes back to the master branch on Gitlab.</p>
-<p>```
-image: node:latest</p>
-<p>stages:
+<p><code>image: node:latest
+stages:
   - "Git checkout"
   - "Prepare Build"
   - "Bump Version"
-  - "commit"</p>
-<p>git-pull:
+  - "commit"
+git-pull:
   stage: "Git checkout"
   script:
     - git checkout $CI_COMMIT_BRANCH
     - git pull
-    - git status</p>
-<p>npm-bump:
+    - git status
+npm-bump:
   ## Bump the project version
   stage: "Bump Version"
   script:
     - echo "Bumping project version"
-    - npm version --no-git-tag-version patch</p>
-<p>commit-files:
+    - npm version --no-git-tag-version patch
+commit-files:
   ## Commit new files back to master branch
   stage: commit
   before_script:
@@ -79,6 +79,5 @@ image: node:latest</p>
     - git add package.json
     - git commit -m "Bumped package to $SERVICE_VERSION" 
     ## Push back to Gitlab using secret token created earlier with "skip-ci" option to stop builds triggering in a loop
-    - git push "https://${GITLAB_USER_NAME}:${CI_ACCESS_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_REF_NAME}" -o skip-ci
-```</p>
+    - git push "https://${GITLAB_USER_NAME}:${CI_ACCESS_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_REF_NAME}" -o skip-ci</code></p>
 </div>

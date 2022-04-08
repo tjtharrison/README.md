@@ -1,0 +1,107 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/static/styles.css' />
+    <link rel='stylesheet' href='/static/mobile.css' />
+</head>
+
+<div id="header_block">
+    <p class="deploy_message">This site has been deployed from Github repository <a
+            href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
+    <div id="header_wrapper">
+
+
+        <p><img class="me" src="/img/timh.png" /></p>
+
+        <h2>Tim Harrison</h2>
+        <h3>Infrastructure Security Team Lead</h3>
+
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/runbooks/">Runbooks</a></li>
+            <li><a href="/pages/guides">Guides</a></li>
+            <li><a target="_blank"
+                    href="https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url">Credly <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://github.com/tjtharrison">Github <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/tim-harrison-47b11159/"> LinkedIn <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+
+
+    </div>
+</div>
+
+<div id="body">
+    </div></div><h1>Setting up an internal DocumentDB instance (Within a VPC)</h1>
+<p>Follow these instructions to setup an AWS documentDB instance (or replicaset) within a VPC.</p>
+<ul>
+<li>First create two subnets in your required VPC (VPC &gt; Subnets &gt; Create Subnet)<ul>
+<li>Name the subnets [environment]-db-[purpose]-[number] (Eg production-testingdb1|2)</li>
+<li>Determine two /24 subnet that is not in use within the VPC (Eg 10.10.1.0/24, 10.10.2.0/24)</li>
+<li>Specify multiple AZs to use (One per Subnet)</li>
+</ul>
+</li>
+<li>Apply the “Private“ routing table to the subnets to allow internal access from Hemel networks<ul>
+<li>Go to VPC &gt; Route Tables</li>
+<li>Find the “Private” route table for your Subnet (Eg production Private)</li>
+<li>Go to “Subnet Associations“ and edit</li>
+<li>Add your two new subnets</li>
+</ul>
+</li>
+<li>Create a network ACL for the subnet (Name the same as the subnet, Eg production-db-testingdb)<ul>
+<li>Create inbound rules 27017 from the subnets you require access from (Eg your server IP)</li>
+<li>Create outbound rules for all TCP to the subnets you require access from (Eg your server IP) to allow ephemeral connectivity.</li>
+<li>Assign the ACL to your subnets.</li>
+<li>Select subnet associations at the bottom and add your two subnets.</li>
+</ul>
+</li>
+<li>Finally in the VPC module, create a Security Group for your Cluster.<ul>
+<li>The Security Group should be named as standard by now [environment]-db-[purpose]</li>
+<li>This should be tailored for the requirement (Only inbound rules should be required on port 27017 from required networks)</li>
+<li>Make a note of the security group ID</li>
+</ul>
+</li>
+<li>Go to documentDB module and create a Subnet Group for your DB<ul>
+<li>The name should match the subnet configuration ([environment]-db-[purpose])</li>
+<li>Ensure you attach both subnets created previously</li>
+</ul>
+</li>
+<li>Now go to the Dashboard and click Create Cluster<ul>
+<li>Scroll to the bottom of the page to enable advanced settings</li>
+<li>Cluster identifier should match the name used throughout the guide ([environment]-db-[purpose])</li>
+<li>Specify the number of instances required for your cluster</li>
+<li>Create a strong, secure password for the master account and document this securely!</li>
+<li>Specify the Security Group required for the databases (Created earlier)</li>
+<li>Click Create!</li>
+</ul>
+</li>
+</ul>
+<h2>Connecting to the Cluster:</h2>
+<p>Once your cluster is created, you can connect using the mongo shell. Do not enter your mongodb password as this will be stored plain text in your shell history. Leave the password field blank and you will be prompted for this after pressing return.</p>
+<p>You can get the connection string for your cluster from documentDB</p>
+<p>NOTE: The below works only for mongo-clients version 4. Greater than this requires TLS (not tested) and older versions complain about a version mismatch.</p>
+<p><code>wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+ mongo --ssl --host [cluster-address]:27017 --sslCAFile rds-combined-ca-bundle.pem --username [your username] --password [DO NOT ENTER PASSWORD HERE]</code></p>
+<h2>Creating additional users in the cluster</h2>
+<p>Connect to the cluster using mongo tools and create a user as follows:</p>
+<p><code>db.createUser(
+     {
+         user: "username",
+         pwd: "password",
+        roles:
+            [{"db":"admin", "role":"dbAdminAnyDatabase" }]
+    }
+)</code></p>
+<h2>Granting users Database access:</h2>
+<p>In order for a user to be able to read/write data to a specific database, access must be granted for this. Options include: read, readWrite, readAnyDatabase and clusterAdmin</p>
+<p>Eg to grant a user readWrite permissions on a specific database, run the following:</p>
+<p><code>db.grantRolesToUser( "USERNAME", [{ role: "readWrite", db: "DATABASE_NAME" }])</code></p>
+</div>

@@ -1,0 +1,62 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/static/styles.css' />
+    <link rel='stylesheet' href='/static/mobile.css' />
+</head>
+
+<div id="header_block">
+    <p class="deploy_message">This site has been deployed from Github repository <a
+            href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
+    <div id="header_wrapper">
+
+
+        <p><img class="me" src="/img/timh.png" /></p>
+
+        <h2>Tim Harrison</h2>
+        <h3>Infrastructure Security Team Lead</h3>
+
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/runbooks/">Runbooks</a></li>
+            <li><a href="/pages/guides">Guides</a></li>
+            <li><a target="_blank"
+                    href="https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url">Credly <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://github.com/tjtharrison">Github <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/tim-harrison-47b11159/"> LinkedIn <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+
+
+    </div>
+</div>
+
+<div id="body">
+    </div></div><h1>Basic use of Ansible to automate repeatable Tasks</h1>
+<p>When running ansible-playbooks it is a good idea to use a centrally managed  “hosts” file in your Git repo. An easy way to ensure you always do this is by adding an alias into your bashrc file as below:</p>
+<p>alias ansible-playbook="ansible-playbook -i /git/ansible/hosts"</p>
+<h2>Writing Playbooks:</h2>
+<p>Ansible Playbooks should be written for any task that can be automated or will be repeated (Eg System installation / Package installation + configuration).</p>
+<p>To write an ansible Playbook, the Ansible website is very helpful for finding what commands to use for specific tasks. Eg searching in Google “ansible apt” will result in the below page which will show the usage of the apt command in Ansible with various examples:</p>
+<p>https://docs.ansible.com/ansible/latest/modules/apt_module.html</p>
+<p>When you have finished writing your Playbook, before commiting to Gitlab you should use Ansible to check the syntax of the script by using the –check flag as follows:</p>
+<p><code>ansible-playbook example.yml --check</code></p>
+<p>If the result is OK you should commit the Playbook to Gitlab after removing any target hosts on the “hosts” line.</p>
+<h2>Running Playbooks:</h2>
+<p>Ansible Playbooks should be stored within the ansible Repository with no “host” specified so they cannot accidentally be run on all hosts.</p>
+<p>When you wish to run a Playbook, ensure your local git repo is up to date with master, update the yaml with the hostname for the server you wish to run the script against (line #2) and execute the playbook.</p>
+<p>Eg if you wish to deploy Logwatch to server “ubuntu”:</p>
+<p><code>cd ansible &amp;&amp; git pull</code></p>
+<p>Update line #2 in playbooks/monitoring/check_mk/deploy-logwatch-ubuntu.yml with:</p>
+<p><code>- hosts: ubuntu</code></p>
+<h2>Execute the playbook:</h2>
+<p><code>ansible-playbook playbooks/monitoring/check_mk/deploy-logwatch-ubuntu.yml</code></p>
+</div>
