@@ -18,7 +18,7 @@ done
 
 echo "Creating new doc "$nice_name" in $doc_type"
 
-file_name=$(echo $nice_name | awk '{print tolower($0)}' | sed 's/ /_/'g)
+file_name=$(echo $nice_name | awk '{print tolower($0)}' | sed 's/ /_/'g | sed 's/\//_/'g)
 
 echo "# $nice_name" > $page_dir/$doc_type/$file_name.md
 echo >> $page_dir/$doc_type/$file_name.md

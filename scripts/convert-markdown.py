@@ -56,7 +56,7 @@ for top_dir in glob.iglob('docs/pages/*'):
 
     # Build out index list
     html = "<ul>\n<h2>" + page_title + "</h2>"
-    for page_file in page_list:
+    for page_file in sorted(page_list):
         page_title = page_file.replace("_"," ").capitalize() 
         html = html + "<li><a href=" + page_file + ">" + page_title + "</a></li>\n"
     html = html + "</ul>\n"
