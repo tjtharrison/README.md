@@ -59,8 +59,8 @@ snyk test</code></p>
 Value: VALUE_FROM_SNYK</p>
 <h2>Integrating into your Pipeline</h2>
 <p>This guide assumes you already have your gitlab-ci.yaml file written, if you do not – See here for a getting started guide for building a pipeline file for Gitlab CI and a nodejs and docker container.</p>
-<p>Add the following into your gitlab-ci.yaml file (Assuming you are using a nodejs base image).
-<code>snyk:
+<p>Add the following into your gitlab-ci.yaml file (Assuming you are using a nodejs base image).</p>
+<p><code>snyk:
   only:
     - master
   stage: "Testing"

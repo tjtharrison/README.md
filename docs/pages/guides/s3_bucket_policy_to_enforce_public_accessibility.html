@@ -39,14 +39,19 @@
 </div>
 
 <div id="body">
-    </div></div><h1>Converting Putty and Openssh Private Keys</h1>
-<p>This is something that I have had to do time and time again, to convert between openssh and putty private keys for Windows users who also dabble with linux servers.</p>
-<p>All of these commands should be run on an Ubuntu server.</p>
-<p>Before proceeding, ensure you have both openssh and putty-tools installed:</p>
-<p><code>sudo apt-get install openssh-server putty-tools</code></p>
-<h2>Converting from Putty PPK to Openssh:</h2>
-<p>-O specifies the output type, -o specifies the output filename:</p>
-<p><code>puttygen id_rsa.ppk -O private-openssh -o id_rsa</code></p>
-<h2>Converting Openssh private key to Putty PPK:</h2>
-<p><code>puttygen id_rsa -o id_rsa.ppk</code></p>
+    </div></div><h1>S3 Bucket Policy to enforce Public accessibility</h1>
+<p>When you enable public access to an S3 bucket – All created files CAN be made publicly accessibly but are not by default.</p>
+<p>To make all files published to the S3 bucket publicly accessible by default, you must update the Bucket policy (Permissions &gt; Bucket Policy)</p>
+<p><code>{
+ "Version": "2012-10-17",
+ "Statement": [
+  {
+   "Sid": "AddPerm",
+   "Effect": "Allow",
+   "Principal": "*",
+   "Action": "s3:GetObject",
+   "Resource": "arn:aws:s3:::[bucket-name]/*"
+  }
+ ]
+}</code></p>
 </div>

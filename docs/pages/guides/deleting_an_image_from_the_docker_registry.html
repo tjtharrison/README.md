@@ -55,7 +55,7 @@ sudo chmod a+x /scripts/delete-docker-image.py</code></p>
 <p><code>sudo docker-compose stop</code></p>
 <p>Once the container is stopped, you can run the <code>delete-docker-image.py</code> script with the <code>–dry-run</code> flag to simply print what images and layers will be deleted before removing the flag and running it for real (If you are satisfied with the output).</p>
 <p><code>/scripts/delete-docker-image.py --image example-image --dry-run
-/scripts/delete-docker-image.py --image example-image</code>
-Once the files have deleted you can start the registry once more:
-<code>sudo docker-compose up -d</code></p>
+/scripts/delete-docker-image.py --image example-image</code></p>
+<p>Once the files have deleted you can start the registry once more:</p>
+<p><code>sudo docker-compose up -d</code></p>
 </div>

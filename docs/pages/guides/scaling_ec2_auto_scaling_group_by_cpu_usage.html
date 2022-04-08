@@ -39,14 +39,33 @@
 </div>
 
 <div id="body">
-    </div></div><h1>Converting Putty and Openssh Private Keys</h1>
-<p>This is something that I have had to do time and time again, to convert between openssh and putty private keys for Windows users who also dabble with linux servers.</p>
-<p>All of these commands should be run on an Ubuntu server.</p>
-<p>Before proceeding, ensure you have both openssh and putty-tools installed:</p>
-<p><code>sudo apt-get install openssh-server putty-tools</code></p>
-<h2>Converting from Putty PPK to Openssh:</h2>
-<p>-O specifies the output type, -o specifies the output filename:</p>
-<p><code>puttygen id_rsa.ppk -O private-openssh -o id_rsa</code></p>
-<h2>Converting Openssh private key to Putty PPK:</h2>
-<p><code>puttygen id_rsa -o id_rsa.ppk</code></p>
+    </div></div><h1>Scaling EC2 Auto Scaling Group by CPU Usage</h1>
+<p>Follow these instructions to setup Auto Scaling based on CPU Usage average across the EC2 Instances in the Auto Scaling Group over a defined period of time (By default this is 5 minutes).</p>
+<ul>
+<li>Open up the AWS Console and browse to EC2 &gt; Auto Scaling Groups (On the left hand side)</li>
+<li>Select the Auto Scaling Group that You wish to apply the scaling to and select “Scaling Policies“ from the menu at the bottom.</li>
+<li>Create two new Policies as follows:</li>
+<li>Click the Link to create a Scaling Policy with Steps</li>
+<li>Name: Scale Down CPU<ul>
+<li>Execute policy when: (Create new alarm)<ul>
+<li>Send Notification to: your@domain.com</li>
+<li>When average of “CPU Utilization” is &lt;= 70% for 1 period of 5 minutes.</li>
+<li>Name of Alarm: awsec2-[Autoscaling Group]-Low-CPU-Utilization</li>
+</ul>
+</li>
+<li>Take the Action: Remove 1 capacity units when 70% &gt;= CPUUtilization</li>
+</ul>
+</li>
+<li>Name: Scale Up CPU<ul>
+<li>Execute policy when: (Create new alarm)<ul>
+<li>Send Notification to: your@domain.com</li>
+<li>When average of “CPU Utilization” is &gt;= 70% for 1 period of 5 minutes.</li>
+<li>Name of Alarm: awsec2-[Autoscaling Group]-High-CPU-Utilization</li>
+</ul>
+</li>
+<li>Take the Action: Add 1 capacity units when 70% &lt;= CPUUtilization</li>
+<li>Instances need: 720 seconds to warm up</li>
+</ul>
+</li>
+</ul>
 </div>
