@@ -1,0 +1,52 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/static/styles.css' />
+    <link rel='stylesheet' href='/static/mobile.css' />
+</head>
+
+<div id="header_block">
+    <p class="deploy_message">This site has been deployed from Github repository <a
+            href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
+    <div id="header_wrapper">
+
+
+        <p><img class="me" src="/img/timh.png" /></p>
+
+        <h2>Tim Harrison</h2>
+        <h3>Infrastructure Security Team Lead</h3>
+
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/runbooks/">Runbooks</a></li>
+            <li><a href="/pages/guides">Guides</a></li>
+            <li><a target="_blank"
+                    href="https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url">Credly <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://github.com/tjtharrison">Github <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/tim-harrison-47b11159/"> LinkedIn <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+
+
+    </div>
+</div>
+
+<div id="body">
+    </div></div><h1>Using an alternative port for Gitlab Server oAuth with Gitlab.com</h1>
+<p>This is a quick page on how to resolve the below errorr if You run a Gitlab server onsite (Possibly docker hosted) and get this error when trying to setup Oauth integration with gitlab.com following this guide from Gitlab.</p>
+<p>The redirect URI included is not valid Error Gitlab.com Oauth</p>
+<p>I found in my docker hosted environment that this was caused by the Gitlab docker-compose file redirecting port 8000 to 80 so the Gitlab service believes it is listening on port 80 – Causing the oAuth integration to fail.</p>
+<p>The fix for this is simply either to setup a reverse proxy for http://your-server.your-domain.com and skip the port in the Gitlab Application setup or to update your gitlab.rb file with the below option.</p>
+<p><code>external_url 'http://your-server.your-domain.com:8001'</code></p>
+<p>Once You have done this, update your docker-compose to forward to the correct port, eg:</p>
+<p><code>ports:
+  - '8001:8001'</code></p>
+</div>
