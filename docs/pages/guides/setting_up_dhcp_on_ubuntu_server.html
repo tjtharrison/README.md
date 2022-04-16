@@ -1,0 +1,74 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/static/styles.css' />
+    <link rel='stylesheet' href='/static/mobile.css' />
+</head>
+
+<div id="header_block">
+    <p class="deploy_message">This site has been deployed from Github repository <a
+            href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
+    <div id="header_wrapper">
+
+
+        <p><img class="me" src="/img/timh.png" /></p>
+
+        <h2>Tim Harrison</h2>
+        <h3>Infrastructure Security Team Lead</h3>
+
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/runbooks/">Runbooks</a></li>
+            <li><a href="/pages/guides">Guides</a></li>
+            <li><a target="_blank"
+                    href="https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url">Credly <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://github.com/tjtharrison">Github <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/tim-harrison-47b11159/"> LinkedIn <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+
+
+    </div>
+</div>
+
+<div id="body">
+    </div></div><h1>Setting up DHCP on Ubuntu Server</h1>
+<p>How to set up and manage DHCP on Ubuntu Server using ISC-DHCP.
+Firstly, we should ensure there are no updates available for the server before installing isc dhcp server.</p>
+<p><code>apt-get update &amp;&amp; apt-get upgrade
+apt-get install isc-dhcp-server</code></p>
+<p>Once this has been installed, the service will not start by default so you are able to configure your DHCP server settings before letting it loose on the network. The server that I will be running ISC from currently have 4 network adapters connected to it, though I only wish to accept DHCP requests from one (The main LAN). In order to do this I must edit the main isc config file and ensure that it only listens on eth0. If you wish for ISC to listen on multiple interfaces, you need only separate these with a space between each interface on the INTERFACES=”” line in the file.</p>
+<p><code>nano /etc/default/isc-dhcp-server
+INTERFACES="eth0"</code></p>
+<p>Once this has been done, we will need to define our DHCP options. This is done in the main conf file for ISC – It is best to make a copy of this config file before making any changes so you are able to revert if anything goes wrong.</p>
+<p>cp /etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf.bak
+I tend to delete the original .conf file now and start from scratch using my notes below due to the sheer amount of information included in commented lines, though if you wish to simply modify the existing file with your network requirements that will work fine too.</p>
+<p><code>nano /etc/dhcp/dhcpd.conf</code></p>
+<p>Enter the below to the file:</p>
+<p>```</p>
+<h6>Authoritative DHCP Server</h6>
+<p>authoritative;</p>
+<h6>My LAN DHCP Settings</h6>
+<p>subnet 192.168.1.0 netmask 255.255.255.0 {
+range 192.168.1.10 192.168.1.100;
+option domain-name "example.org";
+option domain-name-servers ns1.example.org;
+option routers 192.168.1.1;
+option broadcast-address 192.168.1.255;
+default-lease-time 600;
+max-lease-time 7200;
+}
+```</p>
+<p>Adjust the above for your network requirement, restart the DHCP service on the server and you should be good to go!</p>
+<p><code>service isc-dhcp-server start</code></p>
+<p>In order to ensure that your DHCP server is handing out IP addresses as required, you can run the below command to watch your syslog file for DHCP log entries. If you reboot / request a DHCP address while watching this log file you should see an address be given out</p>
+<p><code>tail -f /var/log/syslog | grep "dhcpd"</code></p>
+</div>

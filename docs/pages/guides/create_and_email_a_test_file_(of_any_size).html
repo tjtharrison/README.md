@@ -1,0 +1,62 @@
+<head>
+    <title>Tim Harrison</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='/static/styles.css' />
+    <link rel='stylesheet' href='/static/mobile.css' />
+</head>
+
+<div id="header_block">
+    <p class="deploy_message">This site has been deployed from Github repository <a
+            href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
+    <div id="header_wrapper">
+
+
+        <p><img class="me" src="/img/timh.png" /></p>
+
+        <h2>Tim Harrison</h2>
+        <h3>Infrastructure Security Team Lead</h3>
+
+        <ul class="navigation">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pages/runbooks/">Runbooks</a></li>
+            <li><a href="/pages/guides">Guides</a></li>
+            <li><a target="_blank"
+                    href="https://www.credly.com/badges/f3630def-a568-424b-a8eb-e8857e296e24/public_url">Credly <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://github.com/tjtharrison">Github <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/tim-harrison-47b11159/"> LinkedIn <i
+                        class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+
+
+    </div>
+</div>
+
+<div id="body">
+    </div></div><h1>Create and email a test file (of any size)</h1>
+<p>This comes in handy when testing email filesize filtering on a new mailserver.</p>
+<p>First we need to install sendmail (The program we will be using to send the email).</p>
+<p><code>apt-get install sendemail</code></p>
+<p>The next step will be to browse to an appopriate directory (eg /tmp/) and create a file for you to use to send your mail (Ensure you have sufficient storage space available if you are looking to send very large files!)</p>
+<p><code>cd /tmp/
+dd if=/dev/zero of=file.txt count=[number of BLOCKS] bs=[Read / Write BYTES at a time]</code></p>
+<p>EG:
+<code>tim@thvm:/tmp$ dd if=/dev/zero of=file.txt count=4096
+4096+0 records in
+4096+0 records out
+2097152 bytes (2.1 MB) copied, 0.0146288 s, 143 MB/s</code></p>
+<p>Now we just need to send an email with the created file attached:</p>
+<p><code>sendemail -f test@example.com -t example@test.com -m “This is a test message” -u “Subject” -a /tmp/file.txt</code></p>
+<p>-f = From
+-t = To
+-m = The message body
+-u = The message subject
+-a = The location of the attachment you wish to send</p>
+</div>
