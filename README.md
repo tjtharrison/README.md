@@ -33,8 +33,11 @@ I am strong technically, with the ability to make strategic decisions under time
 ## Acheivements
 
 ![AWS Security Specialist](./docs/img/aws-certified-security-specialty.png)
+![AWS DevOps Professional](./docs/img/aws-certified-devops-professional.png)
 
 <span class="green">AWS Security Specialist:</span> I have recently completed my AWS Security Specialist certification. This covered a wide range of security focused services on AWS and has helped me with my day to day work implementing solutions on AWS to improve security posture.
+
+<span class="green">AWS DevOps Professional:</span> I have recently completed my AWS DevOps Professional certification. This has helped establish my knowledge over a range of AWS services related to CI/CD pipelines, audits, monitoring and logging.
 
 <span class="green">DevOps - CI/CD Implementation:</span> Built a CI/CD Pipeline from design through to implementation with requirements from team leaders - Combining Gitlab, Jenkins Multibranch Pipelines, Helm, Kubernetes, Slack, Jira (Transitions, RemoteLinks, Comments) and Private NPM Repository.
 
@@ -68,9 +71,9 @@ I have lead the building of our internal DevOps team focusing on migrating servi
                         
 ## Education
 
-<span class="green">AWS DevOps Professional:</span> I am currently working on my AWS DevOps Professional training and aim to complete the certification in early 2022.
+<span class="green">AWS Advanced Networking Specialty:</span> I am currently working on my AWS Advanced Networking Specialty training and aim to complete the certification in mid 2022.
                         
-<span class="green">Additional Courses:</span> Udemy Courses in ITIL, Python, Kubernetes, AWS Security Specialist, AWS DevOps Professional, Scrum/Agile.
+<span class="green">Additional Courses:</span> Udemy Courses in ITIL, Python, Kubernetes, AWS Security Specialist, AWS DevOps Professional, AWS Advanced Networking Specialty, Scrum/Agile.
 
 <span class="green">Parmiter's School:</span> A Levels in Sociology, History, IT and English
 
