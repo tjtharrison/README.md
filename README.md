@@ -18,7 +18,9 @@ I am strong technically, with the ability to make strategic decisions under time
 
 <span class="green">Cloud Security:</span> I have proven experience working with security services within AWS (AWS Config, Cloudtrail, Security Hub, Guardduty etc). I have also written design documents for AWS Client VPN, CIS Compliance etc.
 
-<span class="green">DevOps:</span> CI/CD (Gitlab / Github / Teamcity / Jenkins), Ansible (inc AWX), Building and deploying Pipelines, Docker (docker,docker-compose), Kubernetes (Helm, ISTIO, Velero Backups, Rancher, EKS, GKE) and IAC (Terraform, Cloudformation). 
+<span class="green">DevOps / Automation:</span> CI/CD (Gitlab / Github / Teamcity / Jenkins), CAC (Ansible), Building and deploying Pipelines (Github Actions, ArgoCD), Docker (docker,docker-compose), Kubernetes (Helm, EKS, GKE) and IAC (Terraform, Cloudformation).
+
+<span class="green">Team Leadership:</span> Interviewing, 1-1s, kanban / scrum methodologies (Including meeting running - Planning, refinement, retrospectives).
 
 <span class="green">Communication Skills: </span> Strong communication skills both written and verbal, both in team leadership and Customer facing account management to key stakeholders and budget owners (Including project and incident management with communication).
 
@@ -53,9 +55,11 @@ I am strong technically, with the ability to make strategic decisions under time
 
 ## Employment History
 
-<span class="green">Smart Pensions (December 2021 - Present) InfraSec Tech Lead:</span> I currently lead a team of 3 Infrastructure engineers with a team focus on ensuring the Infrastructure Security of our Cloud estate (Primarily AWS). This involves initialising, designing and leading infrastructure projects, attending meetings, handling technical escalations as well as team management.
+<span class="green">Ometria (April 2022 - Present) Infrastructre Team Lead:</span> I currently lead a team of infrastructure engineers supporting the cloud estate for Ometria.
 
-I run regular standups, 1-1s, coaching sessions with junior team members and retrospective sessions. The focus being to highlight where improvements can be made on the team's working environment and cycle time for tickets for our internal and external clients.
+<span class="green">Smart Pensions (December 2021 - April 2022) InfraSec Tech Lead:</span> I lead a team of 3 Infrastructure engineers with a team focus on ensuring the Infrastructure Security of our Cloud estate (Primarily AWS). This involves initialising, designing and leading infrastructure projects, attending meetings, handling technical escalations as well as team management.
+
+I ran regular standups, 1-1s, coaching sessions with junior team members and retrospective sessions. The focus being to highlight where improvements can be made on the team's working environment and cycle time for tickets for our internal and external clients.
 
 <span class="green">Smart Pensions (April 2021 - December 2021) Senior DevOps Engineer (Platform Security Team):</span> I am worked as part of a wider DevOps team of 20+ engineers, working on a range of technologies building, supporting and securing AWS via IAC (Terraform). I work in the Platform Security sub-team, working on implementing various AWS security infrastructure modules (AWS Config, Cloudtrail, Guardduty) including management of alerts via Datadog to our team chat platform. 
 
