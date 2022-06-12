@@ -30,8 +30,8 @@ jobs:
         run: |
           pip3 install isort pylint black
           python3 -m isort ./scripts/convert_markdown.py
-          /usr/local/bin/black ./scripts/convert_markdown.py
-          /usr/local/bin/pylint --fail-under=9.9 ./scripts/convert_markdown.py
+          python3 -m black ./scripts/convert_markdown.py
+          python3 -m pylint --fail-under=9.9 ./scripts/convert_markdown.py
       - name: Commit linted files
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
