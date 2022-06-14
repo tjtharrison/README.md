@@ -69,7 +69,7 @@ Here I lead a number of high priority security incidents, including communicatio
 
 <span class="green">Xara LTD (Jan 2017 - April 2021) Senior Sysadmin / Devops Team Lead:</span> Lead a team which migrated all inhouse baremetal servers to AWS hosted EKS clusters. Managed 24/7 production infrastructure support and assisted migration of application middleware to docker/kubernetes.
 
-I lead the building of our internal DevOps team focusing on migrating services to Kubernetes (Including backups, monitoring, deployment and scaling) and assisting Developers to focus on coding by implementing CI/CD processes (Taking on existing Teamcity implementation and migration to Jenkins).
+I lead the building of our internal DevOps team focusing on migrating services to Kubernetes (Including backups, monitoring, deployment and scaling). Replaced Teamcity CD solution with complete CI/CD solution based on Jenkins.
 
 <span class="green">iQuda (Jan 2011 - Jan 2017) Various Roles (Service Desk Management / Level 3 Technician).</span>
 
