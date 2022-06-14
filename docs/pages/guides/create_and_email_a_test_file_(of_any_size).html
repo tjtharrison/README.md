@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,17 +43,17 @@
     </div></div><h1>Create and email a test file (of any size)</h1>
 <p>This comes in handy when testing email filesize filtering on a new mailserver.</p>
 <p>First we need to install sendmail (The program we will be using to send the email).</p>
-<p><code>apt-get install sendemail</code></p>
+<pre class="highlight"><pre>apt-get install sendemail</pre></pre>
 <p>The next step will be to browse to an appopriate directory (eg /tmp/) and create a file for you to use to send your mail (Ensure you have sufficient storage space available if you are looking to send very large files!)</p>
-<p><code>cd /tmp/
-dd if=/dev/zero of=file.txt count=[number of BLOCKS] bs=[Read / Write BYTES at a time]</code></p>
+<pre class="highlight"><pre>cd /tmp/
+dd if=/dev/zero of=file.txt count=[number of BLOCKS] bs=[Read / Write BYTES at a time]</pre></pre>
 <p>EG:
-<code>tim@thvm:/tmp$ dd if=/dev/zero of=file.txt count=4096
+<pre class="highlight"><pre>tim@thvm:/tmp$ dd if=/dev/zero of=file.txt count=4096
 4096+0 records in
 4096+0 records out
-2097152 bytes (2.1 MB) copied, 0.0146288 s, 143 MB/s</code></p>
+2097152 bytes (2.1 MB) copied, 0.0146288 s, 143 MB/s</pre></pre></p>
 <p>Now we just need to send an email with the created file attached:</p>
-<p><code>sendemail -f test@example.com -t example@test.com -m “This is a test message” -u “Subject” -a /tmp/file.txt</code></p>
+<pre class="highlight"><pre>sendemail -f test@example.com -t example@test.com -m “This is a test message” -u “Subject” -a /tmp/file.txt</pre></pre>
 <p>-f = From
 -t = To
 -m = The message body

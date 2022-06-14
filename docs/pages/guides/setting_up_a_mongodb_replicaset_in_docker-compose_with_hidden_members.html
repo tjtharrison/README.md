@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -47,7 +47,7 @@ This is for instructional purposes, obviously in a production environment you wo
 </blockquote>
 <h2>Installation</h2>
 <p>Create a docker-compose file as below, duplicate the service as many times as instances of mongodb you require (min 2)</p>
-<p><code>version: '3'
+<pre class="highlight"><pre>version: '3'
 services:
   mongodb1:
    image: 'mongo:latest'
@@ -66,13 +66,13 @@ services:
    volumes:
      - './data/db2:/data/db'
    command: 'mongod --replSet "test" --bind_ip 0.0.0.0 --port 27017'
-   restart: 'always'</code></p>
+   restart: 'always'</pre></pre>
 <p>Now run the following to build your containers:</p>
-<p><code>sudo docker-compose up -d</code></p>
+<pre class="highlight"><pre>sudo docker-compose up -d</pre></pre>
 <h2>Configuration</h2>
 <p>To create the replicaset, use the mongo command to access mongodb1 on port 27017 and use rs.initiate to create the replicaset (Adjusting the initiate command based on how many mongodb instances you require).</p>
 <p><em>NOTE: If you do not have mongo client installed on your Desktop, you can docker exec into the container to run the below.</em></p>
-<p><code>mongo
+<pre class="highlight"><pre>mongo
 rs.initiate( {
     _id : "test",
     members: [
@@ -80,24 +80,24 @@ rs.initiate( {
         { _id: 1, host: "mongodb2:27017" },
         { _id: 2, host: "mongodb3:27017" },
     ]
-})</code></p>
+})</pre></pre>
 <p>You can confirm the replicaset status by running the below</p>
-<p><code>mongo
-rs.status()</code></p>
+<pre class="highlight"><pre>mongo
+rs.status()</pre></pre>
 <h2>Adding a Replica set member</h2>
 <p>To add a new member to your cluster, run the below command from one of the existing database servers (Will be using mongodb4 for this example):.</p>
-<p><code>mongo
-rs.add( { host: "mongodb4:27017", priority: 0, votes: 0 } )</code></p>
+<pre class="highlight"><pre>mongo
+rs.add( { host: "mongodb4:27017", priority: 0, votes: 0 } )</pre></pre>
 <h2>Making a “Hidden” Replicaset member</h2>
 <p>To add a hidden member to your Mongodb cluster (Eg for backups) add the new member to the cluster and set it’s attribute to hidden as below (Will be using mongodb5 for this example):</p>
-<p><code>mongo
-rs.add( { host: "mongodb5:27017", priority: 0, votes: 0 } )</code></p>
+<pre class="highlight"><pre>mongo
+rs.add( { host: "mongodb5:27017", priority: 0, votes: 0 } )</pre></pre>
 <p>Now use rs.status() to get the “id” of the new replicaset member – Make a note of this _id:</p>
-<p><code>mongo
-rs.status()</code></p>
+<pre class="highlight"><pre>mongo
+rs.status()</pre></pre>
 <p>Now edit the replicaset configuration to set this new member to “hidden”, replacing id with the value you noted before (Eg 4)</p>
-<p><code>cfg = rs.conf()
+<pre class="highlight"><pre>cfg = rs.conf()
 cfg.members[4].priority = 0
 cfg.members[4].hidden = true
-rs.reconfig(cfg)</code></p>
+rs.reconfig(cfg)</pre></pre>
 </div>

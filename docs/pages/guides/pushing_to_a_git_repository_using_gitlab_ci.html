@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -49,7 +49,7 @@
 <p>The next stage is to go to the Settings &gt; CI/CD &gt; Variables for either your project or the containing group if you wish to use this key across multiple projects.</p>
 <p>Create a new variable here named CI_ACCESS_TOKEN (Or similar, if you use something different here – Ensure you make a note!) with the value as the access token you generated in the previous step. With this being a password you should ensure to mask the variable so that it is not printed in your CI logs.</p>
 <p>The below is a very simple gitlab-ci.yaml file which simply clones your repository, bumps using the npm version command, before pushing the changes back to the master branch on Gitlab.</p>
-<p><code>image: node:latest
+<pre class="highlight"><pre>image: node:latest
 stages:
   - "Git checkout"
   - "Prepare Build"
@@ -79,5 +79,5 @@ commit-files:
     - git add package.json
     - git commit -m "Bumped package to $SERVICE_VERSION" 
     ## Push back to Gitlab using secret token created earlier with "skip-ci" option to stop builds triggering in a loop
-    - git push "https://${GITLAB_USER_NAME}:${CI_ACCESS_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_REF_NAME}" -o skip-ci</code></p>
+    - git push "https://${GITLAB_USER_NAME}:${CI_ACCESS_TOKEN}@${CI_REPOSITORY_URL#*@}" "HEAD:${CI_COMMIT_REF_NAME}" -o skip-ci</pre></pre>
 </div>

@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -88,20 +88,28 @@
 <p>Once your cluster is created, you can connect using the mongo shell. Do not enter your mongodb password as this will be stored plain text in your shell history. Leave the password field blank and you will be prompted for this after pressing return.</p>
 <p>You can get the connection string for your cluster from documentDB</p>
 <p>NOTE: The below works only for mongo-clients version 4. Greater than this requires TLS (not tested) and older versions complain about a version mismatch.</p>
-<p><code>wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
- mongo --ssl --host [cluster-address]:27017 --sslCAFile rds-combined-ca-bundle.pem --username [your username] --password [DO NOT ENTER PASSWORD HERE]</code></p>
-<h2>Creating additional users in the cluster</h2>
-<p>Connect to the cluster using mongo tools and create a user as follows:</p>
-<p><code>db.createUser(
+<p><pre class="highlight"><pre>wget https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+ mongo --ssl --host [cluster-address]:27017 --sslCAFile rds-combined-ca-bundle.pem --username [your username] --password [DO NOT ENTER PASSWORD HERE]
+ ```
+
+## Creating additional users in the cluster
+
+Connect to the cluster using mongo tools and create a user as follows:
+</pre></pre>
+db.createUser(
      {
          user: "username",
          pwd: "password",
         roles:
             [{"db":"admin", "role":"dbAdminAnyDatabase" }]
     }
-)</code></p>
-<h2>Granting users Database access:</h2>
-<p>In order for a user to be able to read/write data to a specific database, access must be granted for this. Options include: read, readWrite, readAnyDatabase and clusterAdmin</p>
-<p>Eg to grant a user readWrite permissions on a specific database, run the following:</p>
-<p><code>db.grantRolesToUser( "USERNAME", [{ role: "readWrite", db: "DATABASE_NAME" }])</code></p>
+)
+<pre class="highlight"><pre>
+## Granting users Database access:
+In order for a user to be able to read/write data to a specific database, access must be granted for this. Options include: read, readWrite, readAnyDatabase and clusterAdmin
+
+Eg to grant a user readWrite permissions on a specific database, run the following:
+</pre></pre>
+db.grantRolesToUser( "USERNAME", [{ role: "readWrite", db: "DATABASE_NAME" }])
+```</p>
 </div>

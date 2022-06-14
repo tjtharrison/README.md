@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -47,9 +47,9 @@
 <p>Once You have copied the /etc/ directory from another server to Your broken server (You will not be able to scp files from local &gt; Remote (Eg from Your Desktop &gt; Broken Server) but You should be able to scp remote &gt; Local from the broken Server.</p>
 <p>For this I stored the /etc/ directory from my old server in /tmp/recover-etc/etc/</p>
 <p>Once Your /etc/ directory is restored on the server, You can run the below to see what Your server will be doing when You run the script to replicate the permissions:</p>
-<p><code>for file in $(find /etc/ ); do echo chmod --reference=/tmp/recover-etc$file $file; done</code></p>
+<pre class="highlight"><pre>for file in $(find /etc/ ); do echo chmod --reference=/tmp/recover-etc$file $file; done</pre></pre>
 <p>This should print something similar to the following:</p>
-<p><code>chmod --reference=/tmp/recover-etc/etc/rc4.d/S03lxcfs /etc/rc4.d/S03lxcfs
+<pre class="highlight"><pre>chmod --reference=/tmp/recover-etc/etc/rc4.d/S03lxcfs /etc/rc4.d/S03lxcfs
 chmod --reference=/tmp/recover-etc/etc/rc4.d/S02acpid /etc/rc4.d/S02acpid
 chmod --reference=/tmp/recover-etc/etc/rc4.d/S01rsyslog /etc/rc4.d/S01rsyslog
 chmod --reference=/tmp/recover-etc/etc/rc4.d/S02atd /etc/rc4.d/S02atd
@@ -58,7 +58,7 @@ chmod --reference=/tmp/recover-etc/etc/rc4.d/S02cron /etc/rc4.d/S02cron
 chmod --reference=/tmp/recover-etc/etc/rc4.d/S01open-vm-tools /etc/rc4.d/S01open-vm-tools
 chmod --reference=/tmp/recover-etc/etc/binfmt.d /etc/binfmt.d
 chmod --reference=/tmp/recover-etc/etc/host.conf /etc/host.conf
-chmod --reference=/tmp/recover-etc/etc/hosts.allow /etc/hosts.allow</code></p>
-<p>If You are happy with the output (Or has happy as You could be given the circumstances..) remove the <code>echo</code> from the loop and run to restore permissions from a safe instance.</p>
+chmod --reference=/tmp/recover-etc/etc/hosts.allow /etc/hosts.allow</pre></pre>
+<p>If You are happy with the output (Or has happy as You could be given the circumstances..) remove the <pre>echo</pre> from the loop and run to restore permissions from a safe instance.</p>
 <p>Once you are complete, delete the recover-etc directory.</p>
 </div>

@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -42,21 +42,20 @@
 <div id="body">
     </div></div><h1>Sending a log message to Logstash via POST request</h1>
 <h2>Linux:</h2>
-<p><code>curl -H "content-type: application/json" -XPUT 'https://logstash.yourserver.com:8080' -d '{ 
+<pre class="highlight"><pre>curl -H "content-type: application/json" -XPUT 'https://logstash.yourserver.com:8080' -d '{ 
     "details": {
         "IP": "1.2.3.4:443"
     },
     "message": "Test message"
-}'</code></p>
+}'</pre></pre>
 <h2>Powershell:</h2>
-<p>```
-$LOGSTASH_MESSAGE = @{
+<pre class="highlight"><pre>$LOGSTASH_MESSAGE = @{
     message="Test message"
     details = @{
         IP="1.2.3.4:443"
     }
 }
-$JSON_BODY = $LOGSTASH_MESSAGE | convertto-json</p>
-<p>$response = Invoke-RestMethod -Uri "https://logstash.yourserver.com:8080" -Method Post -Body $JSON_BODY -ContentType "application/json"
-```</p>
+$JSON_BODY = $LOGSTASH_MESSAGE | convertto-json
+
+$response = Invoke-RestMethod -Uri "https://logstash.yourserver.com:8080" -Method Post -Body $JSON_BODY -ContentType "application/json"</pre></pre>
 </div>

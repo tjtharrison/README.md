@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -44,10 +44,10 @@
 <p>This is something that I have had to do time and time again, to convert between openssh and putty private keys for Windows users who also dabble with linux servers.</p>
 <p>All of these commands should be run on an Ubuntu server.</p>
 <p>Before proceeding, ensure you have both openssh and putty-tools installed:</p>
-<p><code>sudo apt-get install openssh-server putty-tools</code></p>
+<pre class="highlight"><pre>sudo apt-get install openssh-server putty-tools</pre></pre>
 <h2>Converting from Putty PPK to Openssh:</h2>
 <p>-O specifies the output type, -o specifies the output filename:</p>
-<p><code>puttygen id_rsa.ppk -O private-openssh -o id_rsa</code></p>
+<pre class="highlight"><pre>puttygen id_rsa.ppk -O private-openssh -o id_rsa</pre></pre>
 <h2>Converting Openssh private key to Putty PPK:</h2>
-<p><code>puttygen id_rsa -o id_rsa.ppk</code></p>
+<pre class="highlight"><pre>puttygen id_rsa -o id_rsa.ppk</pre></pre>
 </div>

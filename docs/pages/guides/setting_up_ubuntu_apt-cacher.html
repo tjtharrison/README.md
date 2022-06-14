@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,17 +43,17 @@
     </div></div><h1>Setting up Ubuntu Apt-cacher</h1>
 <h2>Configuring Apt-cacher server:</h2>
 <p>Install required pre-requisits:</p>
-<p><code>apt-get install apt-mirror apache2 samba</code></p>
+<pre class="highlight"><pre>apt-get install apt-mirror apache2 samba</pre></pre>
 <p>Create a folder which is to be used as your update cache location. I typically do this on a separate disk to the main OS install to ensure if it runs out of space that there is no OS corruption.</p>
 <p>We now need to edit the apt-cacher config file in order to ensure that it stores cached files to the correct directory.</p>
-<p><code>nano /etc/apt-cacher/apt-cacher.conf</code></p>
+<pre class="highlight"><pre>nano /etc/apt-cacher/apt-cacher.conf</pre></pre>
 <p>In the above file, find the line 'cache_dir' and change this to your folder as assigned above. Eg:
-<code>cache_dir = /media/aptcacher</code></p>
+<pre>cache_dir = /media/aptcacher</pre></p>
 <h2>Configuring Clients:</h2>
 <p>Run the below commands from your clients that you wish to have their updates cached on the cacher server.</p>
-<p><code>nano /etc/apt/apt.conf.d/01proxy</code></p>
+<pre class="highlight"><pre>nano /etc/apt/apt.conf.d/01proxy</pre></pre>
 <p>Enter text as below (substituting appropriate sections as per your setup).</p>
-<p><code>Acquire::http::proxy "http://[yourservername]:3142"</code> 
+<p><pre>Acquire::http::proxy "http://[yourservername]:3142"</pre> 
 Once saved and exited, run an update on your client to ensure it updates properly</p>
-<p><code>apt-get update</code></p>
+<pre class="highlight"><pre>apt-get update</pre></pre>
 </div>

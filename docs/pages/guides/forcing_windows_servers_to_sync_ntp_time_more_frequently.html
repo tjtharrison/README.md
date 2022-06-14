@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -55,10 +55,10 @@
 </ul>
 <h2>Apply the Group Policy change</h2>
 <p>Run the below to update Group Policy on the server:</p>
-<p><code>gpupdate /force</code></p>
+<pre class="highlight"><pre>gpupdate /force</pre></pre>
 <h2>Confirm current time sync status / sync time:</h2>
 <p>To confirm that the setting has applied, run the following and check the final line in the output:</p>
-<p><code>C:\Users\Administrator&gt;w32tm /query /status
+<pre class="highlight"><pre>C:\Users\Administrator&gt;w32tm /query /status
 Leap Indicator: 0(no warning)
 Stratum: 4 (secondary reference - syncd by (S)NTP)
 Precision: -6 (15.625ms per tick)
@@ -67,5 +67,5 @@ Root Dispersion: 7.7758595s
 ReferenceId: 0xA9FEA97B (source IP: 169.254.169.123)
 Last Successful Sync Time: 26/03/2020 19:37:22
 Source: 169.254.169.123,0x9
-Poll Interval: 2 (4s)</code></p>
+Poll Interval: 2 (4s)</pre></pre>
 </div>

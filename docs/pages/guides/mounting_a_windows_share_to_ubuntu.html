@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,12 +43,12 @@
     </div></div><h1>Mounting a Windows share to Ubuntu</h1>
 <p>In this example I will be using my network share for the purposes of backing up my Ubuntu server using Mondo backup.</p>
 <p>Firstly we will need to install required packages.</p>
-<p><code>apt-get install cifs-utils</code></p>
+<pre class="highlight"><pre>apt-get install cifs-utils</pre></pre>
 <p>Make a directory to be used as a mount point for this directory. This is where your network share will be available to on your system.</p>
-<p><code>mkdir /media/serverbackup</code></p>
+<pre class="highlight"><pre>mkdir /media/serverbackup</pre></pre>
 <p>We will need to now edit our fstab file to ensure that this network share mounts each time we boot our server. Edit your fstab file as follows:</p>
-<p><code>nano /etc/fstab
-//[servername]/[sharename]          /media/serverbackups cifs username=WINDOWSUSERNAME,password=PASSWORD,iocharset=utf8,sec=ntlm 0 0</code></p>
+<pre class="highlight"><pre>nano /etc/fstab
+//[servername]/[sharename]          /media/serverbackups cifs username=WINDOWSUSERNAME,password=PASSWORD,iocharset=utf8,sec=ntlm 0 0</pre></pre>
 <p>Now confirm that everything is set up correctly by manually mounting all available mount points running the below command. If you wish to check the auto-mount functionality you can also just reboot your server. If there are no errors you should be good to go</p>
-<p><code>mount -a</code></p>
+<pre class="highlight"><pre>mount -a</pre></pre>
 </div>

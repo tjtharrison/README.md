@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -45,9 +45,9 @@
 <h2>Resetting Kubeadm deployed cluster</h2>
 <p>If the Kubernetes cluster was deployed via kubeadm. The following command should be run on a cluster to remove from a cluster.</p>
 <p><em>NOTE: The command will need to be run on all nodes and masters to completely destroy the cluster configuration</em></p>
-<p><code>kubeadm reset</code></p>
+<pre class="highlight"><pre>kubeadm reset</pre></pre>
 <h2>Uninstalling Kubernetes</h2>
 <p>To uninstall Kubernetes from the cluster completely, uninstall and purge configuration by running the below.</p>
 <p><em>NOTE: The command will need to be run on all nodes and masters to completely remove all packages from all servers involved.</em></p>
-<p><code>apt remove --purge kubelet kubeadm kubectl kubernetes-cni</code></p>
+<pre class="highlight"><pre>apt remove --purge kubelet kubeadm kubectl kubernetes-cni</pre></pre>
 </div>

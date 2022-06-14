@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -44,8 +44,8 @@
 <p>I came accross this issue while testing Rancher in my dev Kubernetes Cluster. Trying to delete the cattle-system namespace caused the Namespace to get stuck on Terminating for +24 hours before I decided to investigate further.</p>
 <p>Attempting to delete the namespace with –force –grace-period=0 had no affect.</p>
 <p>After some time digging, I came across the below article which advised to edit the namespace to check for a “finalizer” field being set in the yaml config. Removing the below two lines and saved allowed the namespace to terminate immediately after closing the file.</p>
-<p><code>spec:
+<pre class="highlight"><pre>spec:
 finalizers:
-- kubernetes</code></p>
+- kubernetes</pre></pre>
 <p>https://github.com/kubernetes/kubernetes/issues/60807</p>
 </div>

@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -45,15 +45,15 @@
 <h2>Getting the ARN for the new user</h2>
 <p>Login to the AWS Console and open the IAM page and find the user who you wish to provide access to the EKS cluster.</p>
 <p>When opening the User’s page you will see their IAM ARN at the top of the page – Make a note of this, eg:</p>
-<p><code>arn:aws:iam::123456789012:user/example.user</code></p>
+<pre class="highlight"><pre>arn:aws:iam::123456789012:user/example.user</pre></pre>
 <h2>Providing Access</h2>
 <p>When deploying your EKS cluster via this guide – You will have created a file in your Code Versioning software called “aws-auth-cm.yaml”. This is the file that determines which users have access to the EKS Cluster.</p>
 <p>Open this file and add the ARN copied earlier under “mapUsers”. Eg:</p>
-<p><code>- userarn: arn:aws:iam::123456789012:user/example.user
+<pre class="highlight"><pre> - userarn: arn:aws:iam::123456789012:user/example.user
    username: example.user
    groups:
      - system:kubelet-api-admin
-     - system:masters</code></p>
+     - system:masters</pre></pre>
 <p>Save this file into your Code Versioning and apply the file to your EKS Cluster:</p>
-<p><code>kubectl apply -f aws-auth-cm.yaml</code></p>
+<pre class="highlight"><pre>kubectl apply -f aws-auth-cm.yaml</pre></pre>
 </div>

@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -42,19 +42,23 @@
 <div id="body">
     </div></div><h1>Using a Batch file to swap between dev and live versions of a Website</h1>
 <p>This was required for one of my Customers who required being able to swap between the dev version and live version of their site from Windows – While the licensing for their site required the URL to be the same.</p>
-<p>```
-@echo off</p>
-<p>SET NEWLINE=^&amp; echo.</p>
-<p>FIND /C /I "www.shop4dinosaurs.co.uk" %WINDIR%\system32\drivers\etc\hosts
-IF %ERRORLEVEL% NEQ 0 ECHO %NEWLINE%^192.168.1.10 www.example.co.uk&gt;&gt;%WINDIR%\System32\drivers\etc\hosts</p>
-<p>start "" http://www.example.co.uk</p>
-<p>@ECHO off
+<pre class="highlight"><pre>@echo off
+
+SET NEWLINE=^&amp; echo.
+
+FIND /C /I "www.shop4dinosaurs.co.uk" %WINDIR%\system32\drivers\etc\hosts
+IF %ERRORLEVEL% NEQ 0 ECHO %NEWLINE%^192.168.1.10 www.example.co.uk&gt;&gt;%WINDIR%\System32\drivers\etc\hosts
+
+start "" http://www.example.co.uk
+
+
+@ECHO off
 SETLOCAL
 SET "HOSTS=%WinDir%\System32\drivers\etc\hosts"
 SET "TEMP_HOSTS=%TEMP%\%RANDOM%__hosts"
 FINDSTR /V "192.168.1.10" "%HOSTS%" &gt; "%TEMP_HOSTS%"
 COPY /b/v/y "%TEMP_HOSTS%" "%HOSTS%"
-EXIT /B</p>
-<p>start "" http://www.example.co.uk
-```</p>
+EXIT /B
+
+start "" http://www.example.co.uk</pre></pre>
 </div>

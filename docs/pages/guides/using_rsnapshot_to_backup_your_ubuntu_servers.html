@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -44,31 +44,29 @@
 <p>There are many options available for rsnapshot, in this guide I will be connecting via SSH to backup remote servers to a central location.
 Firstly we will need to create an SSH key for passwordless connections from your backup server to the client machine.</p>
 <p>Once you have passwordless SSH access to your client machine configured you are ready to install rsnapshot on your backup server.</p>
-<p><code>apt-get install rsnapshot</code></p>
+<pre class="highlight"><pre>apt-get install rsnapshot</pre></pre>
 <p>We will now need to modify the main config file for Rsnapshot, this will give us the option to change the default backup destination (ie the folder in which you wish to save your backups amongst others.</p>
 <p>You can review through the options in this file and adjust as per your requirement, typically I will have created a second disk on my Rsnapshot server to house the ISO files so I will change the “snapshot_root” option to the mount point of this second drive.</p>
-<p><code>nano /etc/rsnapshot.conf</code></p>
-<p>```
-snapshot_root /media/backups/</p>
-<h2>Uncomment the below lines</h2>
-<p>cmd_ssh /usr/bin/ssh
-logfile /var/log/rsnapshot
-```</p>
+<pre class="highlight"><pre>nano /etc/rsnapshot.conf</pre></pre>
+<pre class="highlight"><pre>snapshot_root /media/backups/
+
+## Uncomment the below lines
+cmd_ssh /usr/bin/ssh
+logfile /var/log/rsnapshot</pre></pre>
 <p>You will want to go right down to the bottom of the file now to configure your local and remote server backups. I have put a few examples below for you to copy to backup as per your requirement for your remote servers. When changing these, ensure to leave a trailing / at the end of the path as per the note at the top of the rsnapshot.conf file:</p>
-<p>```</p>
-<h1>LOCALHOST</h1>
-<p>backup /home/ [localfoldername]/
-backup /etc/ [localfoldername]/</p>
-<h1>cacheserver</h1>
-<p>backup root@[cacheserver]:/ [localfoldername]/
-```</p>
+<pre class="highlight"><pre># LOCALHOST
+backup /home/ [localfoldername]/
+backup /etc/ [localfoldername]/
+
+# cacheserver
+backup root@[cacheserver]:/ [localfoldername]/</pre></pre>
 <p>The format for each of the above is basically [remoteserver]:[remotefolderlocation] [localfoldername]. Once you have happy with your commands above, you can save and close the file before checking the Rsnapshot config:</p>
-<p><code>rsnapshot configtest</code></p>
+<pre class="highlight"><pre>rsnapshot configtest</pre></pre>
 <p>The final step of this guide will be to schedule the various Rsnapshot backups in the crontab. This is done by editing the crontab and pasting in the below to the bottom of the fil, adjusting the times at the start as required (If you are unsure about using crontab you can leave the below as default).</p>
-<p><code>0 */4 * * * root /usr/bin/rsnapshot hourly
+<pre class="highlight"><pre>0 */4 * * * root /usr/bin/rsnapshot hourly
 30 3 * * * root /usr/bin/rsnapshot daily
 0 3 * * 1 root /usr/bin/rsnapshot weekly
-30 2 1 * * root /usr/bin/rsnapshot monthly</code></p>
+30 2 1 * * root /usr/bin/rsnapshot monthly</pre></pre>
 <p>Now save and close the crontab. We can kick off a manual backup now to confirm everything is working as it should by running the below command and watching your destination folder to ensure the folders hourly.0/[yourservername] has been created.</p>
-<p><code>rsnapshot hourly</code></p>
+<pre class="highlight"><pre>rsnapshot hourly</pre></pre>
 </div>

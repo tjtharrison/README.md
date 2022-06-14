@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -53,30 +53,30 @@
 <h2>Signing into your Google Account from your Docker host:</h2>
 <p>This guide assumes your docker host runs Ubuntu but you can adjust as appropriate for other Operating Systems.</p>
 <p>The first stage is to install the latest Google Cloud SDK (https://cloud.google.com/sdk/docs/)</p>
-<p><code>echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+<pre class="highlight"><pre>echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates gnupg
-sudo apt-get install -y google-cloud-sdk</code></p>
+sudo apt-get install -y google-cloud-sdk</pre></pre>
 <p>You should now run the below to setup your Google Account. Select the project you created above for your images when prompted.</p>
-<p><code>gcloud init</code></p>
+<pre class="highlight"><pre>gcloud init</pre></pre>
 <p>Once the above has completed, you can run the below to Authenticate Docker with the Google Cloud:</p>
-<p><code>gcloud auth configure-docker</code></p>
+<pre class="highlight"><pre>gcloud auth configure-docker</pre></pre>
 <h2>Signing into Google Image Registry from Kubernetes:</h2>
 <p>This process is required when you are running a baremetal Kubernetes cluster with images hosted in Google Cloud.</p>
 <p>Firstly, from your Google Cloud Account – Create a new Service Account. Browse to “APIs and Services” on the left hand side and select “Credentials”.</p>
 <p>On the following page, select “Create credentials” tand Service account key.</p>
 <p>Give your account an appropriate namd and select Storage &gt;  Source Repository Administrator as the Role – Download as a json.</p>
 <p>Now run the below kubectl command to create the secret:</p>
-<p><code>kubectl create secret docker-registry gcp-registry \
+<pre class="highlight"><pre>kubectl create secret docker-registry gcp-registry \
 --docker-server=eu.gcr.io \
 --docker-username=_json_key \
 --docker-password="$(cat [your-downloaded-file.json])" \
---docker-email=your@email.address</code></p>
+--docker-email=your@email.address</pre></pre>
 <p>Now, in your deployment yamls, ensure to include the below to use these credentials when pulling images from the GCP registry:</p>
-<p><code>spec:
+<pre class="highlight"><pre>spec:
  imagePullSecrets:
-  - name: gcp-registry</code></p>
+  - name: gcp-registry</pre></pre>
 <p>Finally, patch your default service account to use this secret:</p>
-<p><code>kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "gcp-registry"}]}'</code></p>
+<pre class="highlight"><pre>kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "gcp-registry"}]}'</pre></pre>
 </div>

@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -45,8 +45,8 @@
 <p>The redirect URI included is not valid Error Gitlab.com Oauth</p>
 <p>I found in my docker hosted environment that this was caused by the Gitlab docker-compose file redirecting port 8000 to 80 so the Gitlab service believes it is listening on port 80 – Causing the oAuth integration to fail.</p>
 <p>The fix for this is simply either to setup a reverse proxy for http://your-server.your-domain.com and skip the port in the Gitlab Application setup or to update your gitlab.rb file with the below option.</p>
-<p><code>external_url 'http://your-server.your-domain.com:8001'</code></p>
+<pre class="highlight"><pre>external_url 'http://your-server.your-domain.com:8001'</pre></pre>
 <p>Once You have done this, update your docker-compose to forward to the correct port, eg:</p>
-<p><code>ports:
-  - '8001:8001'</code></p>
+<pre class="highlight"><pre> ports:
+  - '8001:8001'</pre></pre>
 </div>

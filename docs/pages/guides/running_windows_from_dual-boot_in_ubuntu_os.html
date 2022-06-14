@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -48,12 +48,12 @@
 <p>If you don’t have it installed already, go here to download the latest version of Virtualbox onto your Ubuntu Desktop – Download Virtualbox.</p>
 <h2>Creating a Virtual Disk file for your Physical Disk</h2>
 <p>The next step will be to create a virtual disk file to mount your Physical Disk from. Firstly you should get the disk name of your Windows installation on your Ubuntu Desktop – To do this, use fdisk to get a list of your Disks and make a note of the ID for your Windows install (You should be able to tell from the disk size) if not you can remove the grep to see the partition sizes.</p>
-<p><code>tim@tjth-desktop:~$ sudo fdisk -l | grep "Disk /dev/sd"
+<pre class="highlight"><pre>tim@tjth-desktop:~$ sudo fdisk -l | grep "Disk /dev/sd"
 Disk /dev/sda: 111.8 GiB, 120034123776 bytes, 234441648 sectors
 Disk /dev/sdb: 55.9 GiB, 60022480896 bytes, 117231408 sectors
-Disk /dev/sdc: 223.6 GiB, 240057409536 bytes, 468862128 sectors</code></p>
+Disk /dev/sdc: 223.6 GiB, 240057409536 bytes, 468862128 sectors</pre></pre>
 <p>Once you have the disk name – Run the below Virtualbox command to create a virtual disk file for your physical disk (Replacing the location in which you wish to store the file and the disk name:</p>
-<p><code>sudo VBoxManage internalcommands createrawvmdk -filename /mnt/virtualbox/win10-os.vmdk -rawdisk /dev/sdb</code></p>
+<pre class="highlight"><pre>sudo VBoxManage internalcommands createrawvmdk -filename /mnt/virtualbox/win10-os.vmdk -rawdisk /dev/sdb</pre></pre>
 <h2>Creating the Virtual Machine</h2>
 <p>The next step is to create a Virtual Machine in the Virtualbox GUI. Open the package and click “New” at the top of the Window – Give your VM an appropriate name and select a location to store the configuration.</p>
 <p>When you get to the Disk section, select the Folder icon under “USe an existing virtual hard disk file” and click “Add” to find your virtual disk file created earlier.</p>
