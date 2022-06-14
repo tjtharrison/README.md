@@ -77,6 +77,6 @@ I lead the building of our internal DevOps team focusing on migrating services t
 
 <span class="green">DIY:</span> While away from the Computer I spend my time working on DIY projects around the house.
 
-<span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Python3, however, also using JavaScript), deploying via Terraform into AWS.
+<span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Python3, however, also using JavaScrip/NodeJS), deploying via Terraform into AWS.
 
 <span class="green">Coding Games:</span> I also spent time on coding websites such as [https://codingame.com](https://codingame.com) which helps me improve my coding efficiency.
