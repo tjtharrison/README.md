@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,13 +43,13 @@
     </div></div><h1>Adding Additional Kube config file to local Kubernetes contexts</h1>
 <p>How to add additional Kubernetes configurations to your local Kube config to access additional clusters.
 Getting a list of current contexts:</p>
-<p><code>tim@tjth-laptop:~/.kube$ kubectl config get-contexts
+<pre class="highlight"><pre>tim@tjth-laptop:~/.kube$ kubectl config get-contexts
 CURRENT NAME CLUSTER AUTHINFO NAMESPACE
 * dev dev dev-admin 
- home kubernetes kubernetes-admin</code></p>
+ home kubernetes kubernetes-admin</pre></pre>
 <p>Connect to your new Kubernetes Cluster Master via SSH and edit the ~/.kube/config file created during kubeadm init.</p>
 <p>Update the following fields (To an appropriate name for the new cluster):</p>
-<p><code>clusters:
+<pre class="highlight"><pre>clusters:
  cluster:
   name: [update-this]
 contexts:
@@ -58,13 +58,13 @@ contexts:
   user: [clustername-admin]
  name: [same as cluster name]
 users:
- -name: [same as user name above]</code></p>
+ -name: [same as user name above]</pre></pre>
 <p>Now, copy this file to your local machine (Eg to ~/.kube/config-[env-name])</p>
 <p>Now (After backing up the current config file) you must use kubeconfig to combine your existing kube config file with the new one, to create a new file “config-new” which you then replace the live config file with.</p>
-<p><code>cd ~/.kube
+<pre class="highlight"><pre>cd ~/.kube
 cp config config-bak-$(date +%F)
 KUBECONFIG=~/.kube/config:~/.kube/config-dev kubectl config view --merge --flatten &gt; ~/.kube/config-all
 rm -rf config
-mv config-all config</code></p>
+mv config-all config</pre></pre>
 <p>If you run the get-contexts command again, you should now see your new Kubernetes cluster listed.</p>
 </div>

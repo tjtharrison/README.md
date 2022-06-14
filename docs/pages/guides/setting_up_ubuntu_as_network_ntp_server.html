@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,15 +43,15 @@
     </div></div><h1>Setting up Ubuntu as network NTP Server</h1>
 <p>How to set up Ubuntu Server as an NTP Server for your network
 The first stage will be to remove ntpdate from your server and install the NTP package.</p>
-<p><code>apt-get remove ntpdate
+<pre class="highlight"><pre>apt-get remove ntpdate
 apt-get purge ntpdate
-apt-get install ntp</code></p>
+apt-get install ntp</pre></pre>
 <p>Once this is done, we will need to configure our NTP.conf file which is the main config file for NTP now running on your server. We can leave a majority of the settings in this file as they are, though I will highlight below changes to be made</p>
-<p><code>nano /etc/ntp.conf</code></p>
-<p>Add <code>iburst</code> next to server 0.ubuntu.pool.ntp.org. This will force NTP to first sync with this server before attempting to syncronise with the others – This helps with a faster start up of the service after restart / startup etc.</p>
-<p><code>server 0.ubuntu.pool.ntp.org iburst</code></p>
+<pre class="highlight"><pre>nano /etc/ntp.conf</pre></pre>
+<p>Add <pre>iburst</pre> next to server 0.ubuntu.pool.ntp.org. This will force NTP to first sync with this server before attempting to syncronise with the others – This helps with a faster start up of the service after restart / startup etc.</p>
+<pre class="highlight"><pre>server 0.ubuntu.pool.ntp.org iburst</pre></pre>
 <p>Add a line with the other restrictions as follows to allow access to NTP to clients on your network:</p>
-<p><code>restrict [your network mask eg 192.168.1.0] mask 255.255.255.0 nomodify notrap</code></p>
+<pre class="highlight"><pre>restrict [your network mask eg 192.168.1.0] mask 255.255.255.0 nomodify notrap</pre></pre>
 <p>Once you have made these changes, restart your ntp service and you should now be able to configure your clients to point to your onsite NTP server.</p>
-<p><code>service ntp restart</code></p>
+<pre class="highlight"><pre>service ntp restart</pre></pre>
 </div>

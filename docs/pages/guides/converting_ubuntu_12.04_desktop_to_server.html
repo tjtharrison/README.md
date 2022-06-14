@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,18 +43,18 @@
     </div></div><h1>Converting Ubuntu 12.04 Desktop to Server</h1>
 <p>I have done this in the past though find it ‘cleaner’ to install the server from scratch if this is your aim.
 Firstly we will need to install tasksel which will be completing the job of converting for us.</p>
-<p><code>apt-get install tasksel</code></p>
+<pre class="highlight"><pre>apt-get install tasksel</pre></pre>
 <p>We will now need to uninstall the Ubuntu-Desktop module and install Server.</p>
-<p><code>tasksel remove ubuntu-desktop (Note: this may take a few minutes to complete)
+<pre class="highlight"><pre>tasksel remove ubuntu-desktop (Note: this may take a few minutes to complete)
 tasksel install server
-apt-get install linux-server linux-image-server</code></p>
+apt-get install linux-server linux-image-server</pre></pre>
 <p>Now that we are no longer using Ubuntu-Desktop we can remove lightdm (The display manager for Ubuntu Desktop):</p>
-<p><code>apt-get –purge remove lightdm</code></p>
+<pre class="highlight"><pre>apt-get –purge remove lightdm</pre></pre>
 <p>Grub will need to be configured to use the command line (Where before it had the nice splash screen before login) add the below to your /etc/default/grub file:</p>
-<p><code>nano /etc/default/grub</code></p>
-<p><code>GRUB_TIMEOUT=5
+<pre class="highlight"><pre>nano /etc/default/grub</pre></pre>
+<pre class="highlight"><pre>GRUB_TIMEOUT=5
 ( Comment out ‘GRUB_HIDDEN_TIMEOUT’ )
 GRUB_CMDLINE_LINUX_DEFAULT=””
 GRUB_TERMINAL=console ( only for PC )
-sudo update-grub</code></p>
+sudo update-grub</pre></pre>
 </div>

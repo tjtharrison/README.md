@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -47,18 +47,18 @@
 Play Store (Android): https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en_GB</p>
 <h2>Installing and Configuring in Ubuntu:</h2>
 <p>Firstly, install the package to your server:</p>
-<p><code>sudo apt install -y libpam-google-authenticator</code></p>
+<pre class="highlight"><pre>sudo apt install -y libpam-google-authenticator</pre></pre>
 <p>Now run the package to configure the MFA (Note: This should be run as the user on which you would like the MFA applied to). There will be a QR code displaying in the Terminal after running – Open up your Google Authenticator app and click “Add” to scan this barcode.</p>
-<p><code>google-authenticator</code></p>
+<pre class="highlight"><pre>google-authenticator</pre></pre>
 <p>Proceed through the settings, answering as appropriate.</p>
 <p><em>Note: You should backup the ~/.google_authenticator file in your user directory as this contains the recovery keys. It is also a good idea to ensure you have console access to your server (Or a way of restoring to a previous state) in the event of any of the below going wrong!</em></p>
 <p>Now run the below comamnds to update the SSH service to force MFA on login (Note: Should be run as root – sudo su included below):</p>
-<p><code>sudo su
+<pre class="highlight"><pre>sudo su
 echo "auth required pam_google_authenticator.so" &gt;&gt; /etc/pam.d/sshd
 sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/g' /etc/ssh/sshd_config
 echo "UsePAM yes" &gt;&gt; /etc/ssh/sshd_config
 echo "AuthenticationMethods publickey,password publickey,keyboard-interactive" &gt;&gt; /etc/ssh/sshd_config
-sed -i 's/@include common-auth/#@include common-auth/g' /etc/pam.d/sshd</code></p>
+sed -i 's/@include common-auth/#@include common-auth/g' /etc/pam.d/sshd</pre></pre>
 <h2>Restart the SSH service to apply:</h2>
-<p><code>service ssh restart</code></p>
+<pre class="highlight"><pre>service ssh restart</pre></pre>
 </div>

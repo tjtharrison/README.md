@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -42,11 +42,11 @@
 <div id="body">
     </div></div><h1>Patching RestartPolicy on running Docker Containers</h1>
 <p>To view the current RestartPolicy for a running docker container, run the below command (Requires jq to be installed)</p>
-<p><code>docker inspect [container-name] | jq -r '.[].HostConfig.RestartPolicy'
+<pre class="highlight"><pre>docker inspect [container-name] | jq -r '.[].HostConfig.RestartPolicy'
 {
   "Name": "always",
   "MaximumRetryCount": 0
-}</code></p>
+}</pre></pre>
 <p>If the response is not correct for your requirement, you can patch the running container with the following command:</p>
-<p><code>docker update --restart=[required-policy]:0 [container-name]</code></p>
+<pre class="highlight"><pre>docker update --restart=[required-policy]:0 [container-name]</pre></pre>
 </div>

@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -45,9 +45,9 @@
 <h2>Symptoms:</h2>
 <p>Unable to resolve internal DNS names on the VPN destinaton network.</p>
 <p>DNS Server for the machine is an external DNS server (Eg below should report the DNS server to be the internal DNS server).</p>
-<p><code>C:\Users\User&gt;nslookup 
+<pre class="highlight"><pre>C:\Users\User&gt;nslookup 
 Default Server:  cache1.service.virginmedia.net 
-Address:  194.168.4.100</code></p>
+Address:  194.168.4.100 </pre></pre>
 <h2>The Cause:</h2>
 <p>This is caused by Windows incorrectly assigning the metrics for the interfaces so the VPN does not take priority over the internal network.</p>
 <h2>The Fix:</h2>

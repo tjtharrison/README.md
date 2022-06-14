@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -45,36 +45,36 @@
 <p>This guide assumes You have a fully functioning Kubernetes Cluster and are running Ubuntu on Your Desktop to install the istioctl package.</p>
 <h2>Installing Istioctl</h2>
 <p>Run the following commands to install istioctl on your Desktop (By downloading the Directory via the ISTIO installation script and creating a symbolic link to your bin directory:</p>
-<p><code>cd /opt/
+<pre class="highlight"><pre>cd /opt/
 curl -L https://istio.io/downloadIstio | sh -
 mv istio-1.4.3 istio &amp;&amp; cd istio
-ln -s $PWD/istioctl /usr/bin/</code></p>
+ln -s $PWD/istioctl /usr/bin/</pre></pre>
 <p>You can verify that istio is installed by running the following:</p>
-<p><code>istioctl help</code></p>
+<pre class="highlight"><pre>istioctl help</pre></pre>
 <h2>Installing ISTIO on Your Kubernetes Cluster:</h2>
 <p>There are various options when it comes to installing Istio (Varying in features). If You are just starting out, it is best to deploy the demo configuration (With all packages) So you can test all of the features before deciding which You will continue to use.</p>
 <p>To install the demo ISTIO configuration, run the below istioctl command:</p>
-<p><code>istioctl manifest apply --set profile=demo</code></p>
+<pre class="highlight"><pre>istioctl manifest apply --set profile=demo</pre></pre>
 <p>This will take some time to download and deploy all of the ISTIO services – You can watch the progress by running the following (Based on a default install):</p>
-<p><code>watch -n 0.2 kubectl get pods -n istio-system</code></p>
+<pre class="highlight"><pre>watch -n 0.2 kubectl get pods -n istio-system</pre></pre>
 <p>Once the Pods have deployed You are ready to go!</p>
 <h2>Enabling ISTIO for Your Namespace:</h2>
 <p>By default, ISTIO will not be enabled on any Namespaces so you will not start getting metrics / monitoring information from Your cluster until it is enabled.</p>
 <p>Istio Namespace deployment is acheived by adding a tag to your Namespace as follows (Adjust namespace as required for your Cluster) before restarting the pods in Your Namespace:</p>
-<p><code>kubectl label namespace [namespace] istio-injection=enabled
-namespace=[namespace]; kubectl rollout restart deployment $(kubectl get deployments -n $namespace | awk {'print $1'}) -n $namespace</code></p>
+<pre class="highlight"><pre>kubectl label namespace [namespace] istio-injection=enabled
+namespace=[namespace]; kubectl rollout restart deployment $(kubectl get deployments -n $namespace | awk {'print $1'}) -n $namespace</pre></pre>
 <p>To disable again if You encounter issues with the default configuartion, simply run the same command with “disabled” Eg:</p>
-<p><code>kubectl label namespace [namespace] istio-injection=disabled</code></p>
+<pre class="highlight"><pre>kubectl label namespace [namespace] istio-injection=disabled</pre></pre>
 <p>Accessing Services:
 Typically on my Kubernetes Clusters I will use LoadBalancers to access external services. If you are running a Bare Metal cluster – See my guide here on installing MetalLB to run Load Balancers in a Bare Metal Environment.</p>
 <p>To access one of the Dashboards (Eg Kiali) via a Load Balancer, simply edit the service and change the Type to “LoadBalancer” (As below) – You will then get an external address from which to Log in.</p>
-<p>```
-kubectl edit svc -n istio-system kiali</p>
-<p>type: LoadBalancer</p>
-<p>tim@tjth-desktop:/opt$ kubectl get svc -n istio-system | grep "kiali"
-kiali LoadBalancer 10.96.249.239 192.168.1.102 20001:30388/TCP 20m
-```</p>
+<pre class="highlight"><pre>kubectl edit svc -n istio-system kiali
+
+ type: LoadBalancer
+
+tim@tjth-desktop:/opt$ kubectl get svc -n istio-system | grep "kiali"
+kiali LoadBalancer 10.96.249.239 192.168.1.102 20001:30388/TCP 20m</pre></pre>
 <h2>Uninstalling Istio:</h2>
 <p>To uninstall Istio (Provided You used the istioctl installation command above) You can simply run the following:</p>
-<p><code>istioctl manifest generate --set profile=demo | kubectl delete -f -</code></p>
+<pre class="highlight"><pre>istioctl manifest generate --set profile=demo | kubectl delete -f -</pre></pre>
 </div>

@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -42,7 +42,7 @@
 <div id="body">
     </div></div><h1>Setting DNS Search Domain in Ubuntu Desktop</h1>
 <p>To set the DNS search domain on Ubuntu Desktop – Simply run the below commands (Adjusting the second line with your internal domain suffix:</p>
-<p><code>nmcli c show
+<pre class="highlight"><pre>nmcli c show
 nmcli c modify "Wired connection 1" ipv4.dns-search "example.com"
-nmcli c down "Wired connection 1" &amp;&amp; nmcli c up "Wired connection 1"</code></p>
+nmcli c down "Wired connection 1" &amp;&amp; nmcli c up "Wired connection 1"</pre></pre>
 </div>

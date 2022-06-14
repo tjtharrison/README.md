@@ -22,10 +22,22 @@ for file_name in glob.iglob("**/**.md", recursive=True):
     with open(file_name, "r", encoding="UTF-8") as f:
         text = f.read()
         html = markdown.markdown(
-            text, extensions=["attr_list", "md_in_html", "markdown.extensions.tables"]
+            text,
+            extensions=[
+                "attr_list",
+                "md_in_html",
+                "markdown.extensions.tables",
+                "pymdownx.superfences",
+            ],
         )
-        ## Fix paths from README
-        html = html.replace("./docs/", "")
+        ## Formatting fixes
+        fix_list = [
+            ("./docs/", ""),
+            ("<code>", "<pre>"),
+            ("</code>", "</pre>"),
+        ]
+        for fix_item in fix_list:
+            html = html.replace(fix_item[0], fix_item[1])
 
         # Append header block
         if "<!-- EndHead -->" in html:

@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -49,9 +49,9 @@
 <p>Click the above link and click to show your API token, make a note of this somewhere secure.</p>
 <h2>Testing</h2>
 <p>To test your API token from the CLI, run the following in your project directory to ensure your token works:</p>
-<p><code>npm install -g snyk
+<pre class="highlight"><pre>npm install -g snyk
 export SNYK_TOKEN=TOKEN_FROM_SNYK
-snyk test</code></p>
+snyk test</pre></pre>
 <p>You should now be given a report of your project security.</p>
 <h2>Adding Variable to Gitlab CI</h2>
 <p>Now we need to save this as an environment variable available to the gitlab runner. Where you store this will depend on whether you wish this to be set on a project or group level. Go to the appropriate page on Gitlab for your requirement and go to Settings &gt; CI/CD &gt; Variables.</p>
@@ -61,11 +61,11 @@ Value: VALUE_FROM_SNYK</p>
 <h2>Integrating into your Pipeline</h2>
 <p>This guide assumes you already have your gitlab-ci.yaml file written, if you do not – See here for a getting started guide for building a pipeline file for Gitlab CI and a nodejs and docker container.</p>
 <p>Add the following into your gitlab-ci.yaml file (Assuming you are using a nodejs base image).</p>
-<p><code>snyk:
+<pre class="highlight"><pre>snyk:
   only:
     - master
   stage: "Testing"
   script:
     - npm install -g snyk
-    - snyk test</code> </p>
+    - snyk test</pre></pre>
 </div>

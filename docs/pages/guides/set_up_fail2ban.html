@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,20 +43,20 @@
     </div></div><h1>Set up Fail2Ban</h1>
 <p>Fail2Ban is a security package for Linux which polls log files and blocks suspect IP addresses for X minutes based on a defined set of rules (Eg 5 incorrect SSH password attempts).
 The first stage is to install fail2ban</p>
-<p><code>apt-get install fail2ban</code></p>
+<pre class="highlight"><pre>apt-get install fail2ban</pre></pre>
 <p>This should start the service automatically but you can double check by checking the status:</p>
-<p><code>root@linx:/etc/ service fail2ban status
+<pre class="highlight"><pre>root@linx:/etc/ service fail2ban status
  * Status of authentication failure monitor 
-* fail2ban is running</code></p>
-<p>Once fail2ban is installed and running you should setup policies based on applications installed on your server. All configuration files are stored in the <code>/etc/fail2ban/</code> directory.</p>
-<p><code>nano /etc/fail2ban/jail.conf</code></p>
+* fail2ban is running</pre></pre>
+<p>Once fail2ban is installed and running you should setup policies based on applications installed on your server. All configuration files are stored in the <pre>/etc/fail2ban/</pre> directory.</p>
+<pre class="highlight"><pre>nano /etc/fail2ban/jail.conf</pre></pre>
 <p>Scroll down and ensure that the appropriate services for your server are enabled (SSH example below)</p>
-<p><code>[ssh]
+<pre class="highlight"><pre>[ssh]
 enabled = true
 port = ssh
 filter = sshd
 logpath = /var/log/auth.log
-maxretry = 6</code></p>
+maxretry = 6</pre></pre>
 <p>Fail2ban by default supports various linux services (eg postfix, apache etcetc). After changes made to this file you should restart the fail2ban service to ensure these services are being monitored</p>
-<p><code>service fail2ban restart</code></p>
+<pre class="highlight"><pre>service fail2ban restart</pre></pre>
 </div>

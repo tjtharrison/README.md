@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,26 +43,25 @@
     </div></div><h1>Replicating Two Folders using Rsync</h1>
 <p>How to set up Rsync to syncronise two folders and schedule this as a repeating task using Cron
 In order to syncronise two folders on my ubuntu servers and workstations I use the tool Rsync with the following flags.</p>
-<p><code>rsync -avu /media/sourcefolder/ /media/destinationfolder/</code></p>
+<pre class="highlight"><pre>rsync -avu /media/sourcefolder/ /media/destinationfolder/</pre></pre>
 <p>These options do the following:</p>
 <p>-a = Copy symbolic links as symbolic links rather than the files themselves, while preserving information about the file (creation date etc).</p>
 <p>-v = Provide a running status of the copy (Ie you can see the file that is currently being processed).</p>
 <p>-u = Update the folder, this is useful when running this job using Cron as it will save each file being copied each time, if it finds that the same file exists in both the source and destination it will not copy this again.</p>
 <p>It is important in the above example to note the trailing / at the end of the source directory. This ensures that a folder called ‘sourcefolder’ is not created within your destination. If you leave off this / the end result would be all of your data being copied to the following directory:</p>
-<p><code>/media/destinationfolder/sourcefolder/</code></p>
+<pre class="highlight"><pre>/media/destinationfolder/sourcefolder/</pre></pre>
 <p>Once the above has completed, you will have an exact copy of your data from /sourcefolder/ in /destinationfolder/. We can now look to schedule this job to run on an automated schedule using Cron.</p>
 <p>Firstly, we will need to make a bash script to run your rsync job as above.</p>
-<p><code>nano /usr/sbin/[yourjobname]</code></p>
+<pre class="highlight"><pre>nano /usr/sbin/[yourjobname]</pre></pre>
 <p>Inside this file we will need to put the following</p>
-<p>```</p>
-<h1>!/bin/bash</h1>
-<p>rsync -avu /media/serverbackups/ /media/serverbackup/
-```</p>
+<pre class="highlight"><pre>#!/bin/bash
+
+rsync -avu /media/serverbackups/ /media/serverbackup/</pre></pre>
 <p>Once you have saved and closed this file, we will need to make it executable before continuing with automation via cron.</p>
-<p><code>chmod +x /usr/sbin/[yourscript]</code></p>
+<pre class="highlight"><pre>chmod +x /usr/sbin/[yourscript]</pre></pre>
 <p>To edit the Crontab you will need to run the following command:</p>
-<p><code>crontab -e</code></p>
+<pre class="highlight"><pre>crontab -e</pre></pre>
 <p>Once inside this file you will need to add a line at the bottom to schedule your sync to run on a schedule. Obviously this is dependent on your requirement, for this example I have set the rsync to occur every 6 hours. I include more information on editing the crontab here.</p>
-<p><code>0 */6         * * *           /usr/sbin/rsyncjob &gt; /var/log/rsyncjob.log 2&gt;&amp;1</code></p>
+<pre class="highlight"><pre>0 */6         * * *           /usr/sbin/rsyncjob &gt; /var/log/rsyncjob.log 2&gt;&amp;1</pre></pre>
 <p>Once you have saved and closed the crontab your job should now run on a regular basis, outputting to the log file as stated above (/var/log/rsyncjob.log – You can adjust this as required).</p>
 </div>

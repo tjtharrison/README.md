@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -44,23 +44,23 @@
 <p>Setting up your Ubuntu Server as a stand-alone Wireless Access Point with supported Wireless Dongles.
 Before starting this guide, you should ensure that your machine (either virtual or physical) has a network card attached as well as your Wireless Dongle.</p>
 <p>Firstly you should ensure that the Wireless dongle that you have connected to your ubuntu server is compatible with the following guide. This is done using the iw package. You can install and run this as follows:</p>
-<p><code>apt-get install iw</code></p>
+<pre class="highlight"><pre>apt-get install iw </pre></pre>
 <p>Now to find your Wireless Dongle available options you can run the following:</p>
-<p><code>iw list</code></p>
+<pre class="highlight"><pre>iw list</pre></pre>
 <p>Within this you will find a section "Supported interface modes" which will look similar to the following:</p>
-<p><code>Supported interface modes:
+<pre class="highlight"><pre>Supported interface modes:
 * IBSS
 * managed
 * AP
 * AP/VLAN
 * WDS
 * monitor
-* mesh point</code></p>
+* mesh point</pre></pre>
 <p>If you see AP listed you will be okay to continue using this guide to create your standalone Wireless Access Point on Ubuntu Server.</p>
 <p>We will now need to install hostapd which will be the package distributing and managing Wireless connections:</p>
-<p><code>apt-get install hostapd
-nano /etc/hostapd/hostapd.conf</code></p>
-<p><code>ssid=[The intended name of your wireless network]
+<pre class="highlight"><pre>apt-get install hostapd
+nano /etc/hostapd/hostapd.conf</pre></pre>
+<pre class="highlight"><pre>ssid=[The intended name of your wireless network]
 wpa_passphrase=[Passphrase for your wireless network]
 interface=wlan0
 bridge=br0
@@ -74,19 +74,19 @@ max_num_sta=5
 rsn_pairwise=CCMP
 wpa=2
 wpa_key_mgmt=WPA-PSK
-wpa_pairwise=TKIP CCMP</code></p>
+wpa_pairwise=TKIP CCMP</pre></pre>
 <p>Once you have saved and closed the above file (After changing Wireless SSID name and passphrase) we will need to ensure hostapd knows where it’s config file is for the Hostapd Daemon</p>
-<p><code>nano /etc/default/hostapd
-DAEMON_CONF=”/etc/hostapd/hostapd.conf”</code></p>
+<pre class="highlight"><pre>nano /etc/default/hostapd
+DAEMON_CONF=”/etc/hostapd/hostapd.conf”</pre></pre>
 <p>Once you have started the Daemon, if you use a Mobile phone / Laptop you should now see a Wireless network appear with your SSID configured above.</p>
 <p>We will now need to configure a network bridge between the newly created Wireless network and your current network connection (this will typically be eth0).</p>
-<p><code>apt-get install bridge-utils</code></p>
+<pre class="highlight"><pre>apt-get install bridge-utils</pre></pre>
 <p>We will now need to edit our network configuration file on the server to disable eth0 configuration and set up our new bridge network (br0). Open up the interfaces file and enter the following details for br0 (Leaving eth0 configuration in place).</p>
-<p><code>nano /etc/network/interfaces</code></p>
-<p><code>auto br0
+<pre class="highlight"><pre>nano /etc/network/interfaces</pre></pre>
+<pre class="highlight"><pre>auto br0
 iface br0 inet dhcp
-bridge-ports eth0 wlan0</code></p>
+bridge-ports eth0 wlan0</pre></pre>
 <p>If you wish for your Wireless server to have a static IP address, this should be configured on the br0 interface and eth0 left as DHCP.</p>
 <p>Once we have done this, we should start the hostapd daemon and ensure we can connect to the Wireless network and network requests (Eg DHCP, DNS) are being forwarded to our internal Network management servers as appropriate.</p>
-<p><code>service hostapd start</code></p>
+<pre class="highlight"><pre>service hostapd start</pre></pre>
 </div>

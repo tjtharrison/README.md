@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,38 +43,37 @@
     </div></div><h1>Installing SSL Certificate for Apache</h1>
 <p>A guide on how to install an SSL Certificate purchased from a registered provider (In this example I use Godaddy) and install this ready for use by Apache web server.
 The first stage in this is to purchase an SSL certificate online, if you do not wish to purchase an SSL certificate – Ubuntu comes with a ‘Self-signed’ certificate already which can be found in the following directory:</p>
-<p><code>SSLCertificateFile – /etc/ssl/certs/ssl-cert-snakeoil.pem
-SSLCertificateKeyFile – /etc/ssl/private/ssl-cert-snakeoil.key</code></p>
+<pre class="highlight"><pre>SSLCertificateFile – /etc/ssl/certs/ssl-cert-snakeoil.pem
+SSLCertificateKeyFile – /etc/ssl/private/ssl-cert-snakeoil.key</pre></pre>
 <p>If you have already purchased your SSL certificate, the first thing we must do will be to generate a Certificate Signing Request (CSR) and enable the SSL mod for Apache2. This is done by running the following command from your Ubuntu Server:</p>
-<p><code>a2enmod ssl
+<pre class="highlight"><pre>a2enmod ssl
 mkdir /etc/ssl/certificate
-openssl req -new -newkey rsa:2048 -nodes -keyout /etc/ssl/certificate/servername.key -out /etc/ssl/certificate/servername.csr</code></p>
+openssl req -new -newkey rsa:2048 -nodes -keyout /etc/ssl/certificate/servername.key -out /etc/ssl/certificate/servername.csr</pre></pre>
 <p>While generating the CSR, you will have to enter details on your server, in order to ensure that your SSL certificate is valid – Ensure you enter this with the correct information. You can enter a passphrase if you wish, if you chose not to there may be security risks.</p>
 <p>We will now need to copy the entire CSR file into your Certification issuer’s site – This will be different dependant on the provider but their site should be self explanitory. Run the following to print your CSR file:</p>
-<p><code>cat /etc/ssl/certificate/servername.csr</code></p>
+<pre class="highlight"><pre>cat /etc/ssl/certificate/servername.csr</pre></pre>
 <p>Once you have uploaded your CSR file, you will likely have to validate your ownership of the domain (Either by creating a TXT DNS file entry or uploading a HTML file onto your webserver – Though this may change depending on your SSL provider). Once this has been verified, you will be able to download your SSL certificate – You will want to chose the option to Download for Apache if this is possible, though really as long as you have your CRT file that will be all that you require.</p>
-<p>Download your SSL certificate onto your Web server and store it in a sensible location (We can use the <code>/etc/ssl/certificate directory</code> from before).</p>
+<p>Download your SSL certificate onto your Web server and store it in a sensible location (We can use the <pre>/etc/ssl/certificate directory</pre> from before).</p>
 <p>Firstly, ensure you have the unzip package installed on your server</p>
-<p><code>apt-get install unzip</code></p>
+<pre class="highlight"><pre>apt-get install unzip</pre></pre>
 <p>Then proceed to unzip the downloaded SSL certificate to the /etc/ssl/certificates directory:</p>
-<p><code>mv [your unique code].zip /etc/ssl/certificates/
+<pre class="highlight"><pre>mv [your unique code].zip /etc/ssl/certificates/
 cd /etc/ssl/certificates/
-unzip [your unique code].zip</code></p>
+unzip [your unique code].zip</pre></pre>
 <p>Now we will need to configure our website to use this SSL certificate. You will now need to create / update your config file in Apache (This is dependant on your setup):</p>
-<p><code>nano /etc/apache2/sites-enabled/yoursitename.conf</code>
-```
-<VirtualHost *:443>
+<p><pre class="highlight"><pre>nano /etc/apache2/sites-enabled/yoursitename.conf</pre></pre>
+<pre class="highlight"><pre>&lt;VirtualHost *:443&gt;
  ServerAdmin [youremailaddress]
  ServerName [yourwebsiteaddress]
 DocumentRoot /var/www/[yourwebsite]
  ErrorLog ${APACHE_LOG_DIR}/error.log
  CustomLog ${APACHE_LOG_DIR}/access.log combined
- RewriteEngine On</p>
-<p>SSLEngine on
+ RewriteEngine On
+
+SSLEngine on
 SSLCertificateFile /etc/ssl/certificate/[yourcertificate].crt
 SSLCertificateKeyFile /etc/ssl/certificate/[yourcertificate].key
-</VirtualHost>
-```</p>
+&lt;/VirtualHost&gt;</pre></pre></p>
 <p>Once you have created this Apache config file, you will need to restart your apache service before browsing to your site and confirming the SSL certificate is functioning as required.</p>
-<p><code>service apache restart</code></p>
+<pre class="highlight"><pre>service apache restart</pre></pre>
 </div>

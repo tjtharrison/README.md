@@ -12,7 +12,7 @@
 </head>
 
 <div id="header_block">
-    <p class="deploy_message">This site has been deployed from Github repository <a
+    <p class="deploy_message">This site has been generated and deployed from Github repository <a
             href="https://github.com/tjtharrison/README.md" target="_blank">tjtharrison/README.md</a></p>
     <div id="header_wrapper">
 
@@ -43,7 +43,7 @@
     </div></div><h1>S3 Bucket Policy to enforce Public accessibility</h1>
 <p>When you enable public access to an S3 bucket – All created files CAN be made publicly accessibly but are not by default.</p>
 <p>To make all files published to the S3 bucket publicly accessible by default, you must update the Bucket policy (Permissions &gt; Bucket Policy)</p>
-<p><code>{
+<pre class="highlight"><pre>{
  "Version": "2012-10-17",
  "Statement": [
   {
@@ -54,5 +54,5 @@
    "Resource": "arn:aws:s3:::[bucket-name]/*"
   }
  ]
-}</code></p>
+}</pre></pre>
 </div>
