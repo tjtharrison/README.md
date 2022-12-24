@@ -1,6 +1,6 @@
 ![me](./docs/img/timh.png)
 ## Tim Harrison { .md }
-### Infrastructure Security Team Lead { .md }
+### DevSecOps Tech Lead { .md }
 
 ## About Me
 
@@ -24,21 +24,21 @@ I have a strong technical background working in Fintech and a proven understandi
 
 <span class="green">Documentation:</span> In all teams I have lead, I have built up a strong collection of documentation based on projects and applications we have built as a team, runbooks for routine tasks, internal processes / ways of working and diagrams for implemented solutions. I find this is the most efficient way to onboard new team members and help existing team members gain experience with new services. I am profficient in writing sequence diagrams to help explain technical solutions to a wider audidence within the company.
 
-<span class="green">Documentation:</span> In all teams I have lead, I have built up a strong collection of documentation based on projects and applciations we have built as a team, runbooks for routine tasks, internal processes / ways of working and diagrams for implemented solutions. I enjoy writing sequence diagrams to help explain technical solutions to a wider audidence within the company.
-
 ## Key Technical Skills 
 
-<span class="green">Cloud Management:</span> I have over 6 years experience working with AWS across a wide range of services (Including security / compliance focus) with AWS Certs in DevOps Professional / Security Specialist and am currently working towards my Advanced Networking Specialist certificate. Experience working with GCP (Including GKE, Networking), Azure (limited) and other smaller Cloud Providers (Scaleway, Digital Ocean etc) as well as code hosting platforms such as Heroku.
+<span class="green">DevSecOps:</span> Worked with stakeholders and SMEs within the business to build out, document and improve on the DevSecOps toolchain (From developer environments up to production). Improved security monitoring and alerting with Datadog.
 
 <span class="green">Cloud Security:</span> Proven experience working with security services within AWS (AWS Config, Cloudtrail, Security Hub, Guardduty etc). As part of my role as Security Infrastructure lead I also ran incident response for high severity incidents and wrote mitigating runbooks for Cloud security incidents.
+
+<span class="green">Cloud Management:</span> I have over 6 years experience working with AWS across a wide range of services (Including security / compliance focus) with AWS Certs in DevOps Professional / Security Specialist and am currently working towards my Advanced Networking Specialist certificate. Experience working with GCP (Including GKE, Networking), Azure (limited) and other smaller Cloud Providers (Scaleway, Digital Ocean etc) as well as code hosting platforms such as Heroku.
 
 <span class="green">DevOps / Automation:</span> I am a strong believer in DevOps principals and ways of working - Encouraging automation to ensure compliance / standardisation. Developing / improving CI/CD pipelines (Experience with Github Actions, Gitlab CI, Teamcity, Jenkins, ArgoCD) deploying both application (Python, NodeJS) and infrastrucutre code (Helm, EKS, GKE, Terraform, Ansible).
 
 <span class="green">Network Management:</span> I have over 10 years experience working designing / building and supporting networks (On prem / Datacenter / Hybrid Cloud / Pure Cloud) including a strong understanding of supporting technologies (DHCP, DNS, routing, firewalls, logging, SSL Certificates, VPNs).
 
-<span class="green">Server Management:</span> I also have over 10 years experience building / supporting and monitoring servers (Phyiscal / Virtual / Cloud) across a range of Operating Systems (Windows / Linux / BSD). I am confident using Configuration as Code packages (eg Ansible) to deploy and manage workloads. 
+<span class="green">Server Management:</span> I also have over 10 years experience building / supporting and monitoring servers (Physical / Virtual / Cloud) across a range of Operating Systems (Windows / Linux / BSD). I am confident using Configuration as Code packages (eg Ansible) to deploy and manage workloads. 
 
-<span class="green">Coding:</span> Competent coder in a set of languages (Bash, Python, Javascript, Powershell). I am comfortable using code Versioning tools (Gitlab, Github, SVN).
+<span class="green">Coding:</span> Competent coder in a set of languages (Bash, Python). I am comfortable using code Versioning tools (Gitlab, Github, SVN).
 
 ## Acheivements
 
@@ -49,6 +49,8 @@ I have a strong technical background working in Fintech and a proven understandi
 
 <span class="green">AWS DevOps Professional:</span> I have recently completed my AWS DevOps Professional certification. This has helped establish my knowledge over a range of AWS services related to CI/CD pipelines, audits, monitoring and logging.
 
+<span class="green">DevSecOps - Github Hardening</span> Took ownership of Github Enterprise account and improve security across the board, using GHAS (Github Advanced Security - Including Custom secret scanning and CodeQL). Implemented monitoring using Datadog and 
+
 <span class="green">DevOps - CI/CD Implementation:</span> Built a CI/CD Pipeline from design through to implementation with requirements from team leaders - Combining Gitlab, Jenkins Multibranch Pipelines, Helm, Kubernetes, Slack, Jira (Transitions, RemoteLinks, Comments) and Private NPM Repository.
 
 <span class="green">Consultancy Business and Tech Article Website</span> Worked (amongst other clients) with a local charity and assisted migrating away from legacy infrastructure to office 365. Currently maintain a website of tech articles that consistently gets >500 Unique visitors per week.
@@ -57,7 +59,19 @@ I have a strong technical background working in Fintech and a proven understandi
 
 ## 5 Years Employment History
 
-<span class="green">Ometria (April 2022 - Present) Infrastructre Team Lead:</span> I currently lead a team of infrastructure engineers supporting the cloud estate for Ometria.
+<span class="green">Smart Pensions (April 2022 - September 2022) DevSecOps Tech Lead:</span> I currently lead a DevSecOps team focusing on improving Security of the Smart Pensions environment through implementation and improvement of tooling and processes.
+
+I have lead the deployment of GitHub Advanced Security across a GitHub Enterprise account, ensuring full coverage of tooling and supporting processes and documentation were in place to "Shift left" security responsibility to the owning development teams. GitHub security is monitored via Audit logs and a custom lambda that I have written to poll the Github API for compliance with our requirement across the Enterprise account (Alerting misconfiguration to relevant teams depending on priority).
+
+I am continuing to improve and assist on the Infrastructure security on AWS writing Terraform modules and using AWS Tooling (AWS Security Hub, AWS Config, AWS Guardduty) to highlight non-compliance.
+
+I am building a single plane of glass approach to monitoring - Consolidating SCM, infrastructure and appsec alerting into Datadog, using Datadog security functionality to aggregate and triage alerting to the appropriate owning team.
+
+<span class="green">Ometria (April 2022 - September 2022) Infrastructre Team Lead:</span> I lead a team of infrastructure engineers supporting the cloud estate and engineering team for Ometria. 
+
+I worked with the infrastructure team to build out a ways of working and standardise on documentation. We used the feedback from the ways of working to understand issues that the team was having and implemented processes to assist.
+
+I ran daily standups, 1-1s and retrospectives/refinement sessions while joining weekly project status calls to feedback infrastructure project status to the wider project team.
 
 <span class="green">Smart Pensions (December 2021 - April 2022) InfraSec Tech Lead:</span> I lead a team of 3 Infrastructure engineers with a team focus on ensuring the Infrastructure Security of our Cloud estate (Primarily AWS). This involves initialising, designing and leading infrastructure projects, attending meetings, handling technical escalations as well as team management.
 
@@ -77,6 +91,6 @@ I lead the building of our internal DevOps team focusing on migrating services t
 
 <span class="green">DIY:</span> While away from the Computer I spend my time working on DIY projects around the house.
 
-<span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Python3, however, also using JavaScrip/NodeJS), deploying via Terraform into AWS.
+<span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Python3), deploying via Terraform into AWS.
 
 <span class="green">Coding Games:</span> I also spent time on coding websites such as [https://codingame.com](https://codingame.com) which helps me improve my coding efficiency.
