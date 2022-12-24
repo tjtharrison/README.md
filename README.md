@@ -26,7 +26,7 @@ I have a strong technical background working in Fintech and a proven understandi
 
 ## Key Technical Skills 
 
-<span class="green">DevSecOps:</span> Worked with stakeholders and SMEs within the business to build out, document and improve on the DevSecOps toolchain (From developer environments up to production). Improved security monitoring and alerting with Datadog.
+<span class="green">DevSecOps:</span> Experienced at working with development teams to improve the security of the SDLC in using tooling and processes, strong believer in shift-left, empowering development teams to own their code security with appropriate documentation and training. Seasoned user of GitHub security functionality (GHAS, audit logging, actions, workflows) and have written a custom lambda function to poll GitHub api and generate reporting and metrics in Datadog for account health over time, highlight non-compliance etc.
 
 <span class="green">Cloud Security:</span> Proven experience working with security services within AWS (AWS Config, Cloudtrail, Security Hub, Guardduty etc). As part of my role as Security Infrastructure lead I also ran incident response for high severity incidents and wrote mitigating runbooks for Cloud security incidents.
 
@@ -49,7 +49,7 @@ I have a strong technical background working in Fintech and a proven understandi
 
 <span class="green">AWS DevOps Professional:</span> I have recently completed my AWS DevOps Professional certification. This has helped establish my knowledge over a range of AWS services related to CI/CD pipelines, audits, monitoring and logging.
 
-<span class="green">DevSecOps - Github Hardening</span> Took ownership of Github Enterprise account and improve security across the board, using GHAS (Github Advanced Security - Including Custom secret scanning and CodeQL). Implemented monitoring using Datadog and 
+<span class="green">DevSecOps - Github Advanced Security</span> Took ownership of a project to implement GHAS (GitHub Advanced Security) to an Enterprise account (including writing of custom secret scanning patterns and deployment of workflows to all org repositories). Wrote supporting documentation and provided training to assist with the onboarding for development and security teams. Implemented monitoring of GitHub estate using Datadog with triaging and delivery of notifications to owning teams using Audit logs and custom tooling written to audit compliance of GitHub resources.
 
 <span class="green">DevOps - CI/CD Implementation:</span> Built a CI/CD Pipeline from design through to implementation with requirements from team leaders - Combining Gitlab, Jenkins Multibranch Pipelines, Helm, Kubernetes, Slack, Jira (Transitions, RemoteLinks, Comments) and Private NPM Repository.
 
