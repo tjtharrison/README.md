@@ -49,7 +49,7 @@ I have a strong technical background working in Fintech and a proven understandi
 
 <span class="green">AWS DevOps Professional:</span> I have recently completed my AWS DevOps Professional certification. This has helped establish my knowledge over a range of AWS services related to CI/CD pipelines, audits, monitoring and logging.
 
-<span class="green">DevSecOps - Github Hardening</span> Took ownership of Github Enterprise account and improve security across the board, using GHAS (Github Advanced Security - Including Custom secret scanning and CodeQL). Implemented monitoring using Datadog and 
+<span class="green">DevSecOps - Github Advanced Security</span> Took ownership of a project to implement GHAS (GitHub Advanced Security) to an Enterprise account (including writing of custom secret scanning patterns and deployment of workflows to all org repositories). Wrote supporting documentation and provided training to assist with the onboarding for development and security teams. Implemented monitoring of GitHub estate using Datadog with triaging and delivery of notifications to owning teams using Audit logs and custom tooling written to audit compliance of GitHub resources.
 
 <span class="green">DevOps - CI/CD Implementation:</span> Built a CI/CD Pipeline from design through to implementation with requirements from team leaders - Combining Gitlab, Jenkins Multibranch Pipelines, Helm, Kubernetes, Slack, Jira (Transitions, RemoteLinks, Comments) and Private NPM Repository.
 
