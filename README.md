@@ -26,7 +26,7 @@ I have a strong technical background working in Fintech and a proven understandi
 
 ## Key Technical Skills 
 
-<span class="green">DevSecOps:</span> Experienced at working with development teams to improve the security of the SDLC in using tooling and processes, strong believer in shift-left, empowering development teams to own their code security with appropriate documentation and training. Seasoned user of Github security functionality (GHAS, audit logging, actions, workflows) and have written a custom lambda function to poll GitHub api and generate reporting and metrics in Datadog for account health over time.
+<span class="green">DevSecOps:</span> Experienced at working with development teams to improve the security of the SDLC in using tooling and processes, strong believer in shift-left, empowering development teams to own their code security with appropriate documentation and training. Seasoned user of GitHub security functionality (GHAS, audit logging, actions, workflows) and have written a custom lambda function to poll GitHub api and generate reporting and metrics in Datadog for account health over time, highlight non-compliance etc.
 
 <span class="green">Cloud Security:</span> Proven experience working with security services within AWS (AWS Config, Cloudtrail, Security Hub, Guardduty etc). As part of my role as Security Infrastructure lead I also ran incident response for high severity incidents and wrote mitigating runbooks for Cloud security incidents.
 
