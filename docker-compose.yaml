@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  readme:
+    container_name: "tjth_readme"
+    image: "httpd:2.4"
+    volumes:
+      - "./docs:/usr/local/apache2/htdocs"
+    ports:
+      - "8080:80"
