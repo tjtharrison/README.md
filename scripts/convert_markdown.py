@@ -7,7 +7,6 @@ TEMPLATE_FILE = "template.html"
 
 # Build out html files
 for file_name in glob.iglob("**/**.md", recursive=True):
-
     print("Converting " + file_name + " to HTML")
 
     if file_name == "README.md":
