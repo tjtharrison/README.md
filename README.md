@@ -61,7 +61,7 @@ I have a strong technical background working in Fintech and a proven understandi
 
 ## 5 Years Employment History
 
-<span class="green">Smart Pensions (April 2022 - September 2022) DevSecOps Tech Lead:</span> I currently lead a DevSecOps team focusing on improving Security of the Smart Pensions environment through implementation and improvement of tooling and processes.
+<span class="green">Smart Pensions (September 2022 - Present) DevSecOps Tech Lead:</span> I currently lead a DevSecOps team focusing on improving Security of the Smart Pensions environment through implementation and improvement of tooling and processes.
 
 I have lead the deployment of GitHub Advanced Security across a GitHub Enterprise account, ensuring full coverage of tooling and supporting processes and documentation were in place to "Shift left" security responsibility to the owning development teams. GitHub security is monitored via Audit logs and a custom lambda that I have written to poll the GitHub API for compliance with our requirement across the Enterprise account (Alerting misconfiguration to relevant teams depending on priority).
 
