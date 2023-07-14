@@ -1,83 +1,144 @@
 """ Script to generate HTML files from Markdown for publication """
 import glob
+import os
 
 import markdown
 
 TEMPLATE_FILE = "template.html"
 
-# Build out html files
-for file_name in glob.iglob("**/**.md", recursive=True):
-    print("Converting " + file_name + " to HTML")
 
-    if file_name == "README.md":
-        DESTINATION_FILE = "docs/index.html"
-    else:
-        DESTINATION_FILE = "docs/" + file_name.replace(".md", ".html")
+def get_files():
+    """
+    Get markdown files from the current directory.
 
-    page_file = DESTINATION_FILE.split("/")[-1].replace(".html", "")
-    index_file = DESTINATION_FILE.rsplit("/", 1)[0] + "/index.html"
+    Returns:
+            list: List of markdown files.
+    """
+    try:
+        print("Getting a list of markdown files")
+        all_markdown_files = list(glob.iglob("**/**.md", recursive=True))
+    except Exception as error_message:
+        print("Failed to get markdown files")
+        raise Exception from error_message
 
-    # Load Markdown content
-    with open(file_name, "r", encoding="UTF-8") as f:
-        text = f.read()
-        html = markdown.markdown(
-            text,
-            extensions=[
-                "attr_list",
-                "md_in_html",
-                "markdown.extensions.tables",
-                "pymdownx.superfences",
-            ],
-        )
-        ## Formatting fixes
-        fix_list = [
-            ("./docs/", ""),
-            ("<code>", "<pre>"),
-            ("</code>", "</pre>"),
-        ]
-        for fix_item in fix_list:
-            html = html.replace(fix_item[0], fix_item[1])
+    return all_markdown_files
 
-        # Append header block
-        if "<!-- EndHead -->" in html:
-            html = html.replace("<!-- EndHead -->", "</div></div>")
+
+def create_directories(all_markdown_files):
+    """
+    Process markdown files and create necessary subdirectories.
+
+    Args:
+            all_markdown_files (list): List of markdown files.
+
+    Returns:
+         True if successful
+    """
+    try:
+        print("Creating directories")
+        for file_name in all_markdown_files:
+            if "/" in file_name:
+                directory = "docs/" + file_name.rsplit("/", 1)[0]
+                if not os.path.exists(directory):
+                    print("Making directory " + directory)
+                    os.makedirs(directory)
+    except Exception as error_message:
+        print("Failed to create directories")
+        raise Exception from error_message
+
+
+def convert_file(file_name):
+    """
+    Convert markdown file to HTML.
+
+    Args:
+            file_name (str): Name of markdown file.
+
+    Returns:
+            True if successful
+    """
+    try:
+        print("Converting " + file_name + " to HTML")
+
+        if file_name == "README.md":
+            destination_file = "docs/index.html"
         else:
-            html = "</div></div>" + html
+            destination_file = "docs/" + file_name.replace(".md", ".html")
 
-    # Load header content
-    with open(TEMPLATE_FILE, "r", encoding="UTF-8") as t:
-        completed_template = t.read().replace("{{ BODY }}", html)
+        # Load Markdown content
+        with open(file_name, "r+", encoding="UTF-8") as markdown_file:
+            text = markdown_file.read()
+            html = markdown.markdown(
+                text,
+                extensions=[
+                    "attr_list",
+                    "md_in_html",
+                    "markdown.extensions.tables",
+                    "pymdownx.superfences",
+                ],
+            )
+            ## Formatting fixes
+            fix_list = [
+                ("./docs/", ""),
+                ("<code>", "<pre>"),
+                ("</code>", "</pre>"),
+            ]
+            for fix_item in fix_list:
+                html = html.replace(fix_item[0], fix_item[1])
 
-    # Build file
-    with open(DESTINATION_FILE, "w", encoding="UTF-8") as a:
-        a.write(completed_template)
-    print(DESTINATION_FILE + " written!")
+            # Append header block
+            if "<!-- EndHead -->" in html:
+                html = html.replace("<!-- EndHead -->", "</div></div>")
+            else:
+                html = "</div></div>" + html
 
-# Build out html files
-for top_dir in glob.iglob("docs/pages/*"):
-    # Write index file
-    index_file = top_dir + "/index.html"
-    page_title = top_dir.split("/")[2]
-    print("Collecting pages for " + index_file)
-    page_list = []
+            # Load header content
+            with open(TEMPLATE_FILE, "r", encoding="UTF-8") as template_file:
+                completed_template = template_file.read().replace("{{ BODY }}", html)
 
-    for indexable_page in glob.iglob(top_dir + "/*"):
-        if "index.html" not in indexable_page:
-            link_name = indexable_page.split("/")[-1].replace(".html", "")
-            page_list.append(link_name)
+            # Build file
+            with open(destination_file, "w", encoding="UTF-8") as html_file:
+                html_file.write(completed_template)
+            print(destination_file + " written!")
+    except Exception as error_message:
+        print("Failed to convert " + file_name + " to HTML: " + str(error_message))
+        raise Exception from error_message
 
-    # Build out index list
-    html = "<ul>\n<h2>" + page_title + "</h2>"
-    for page_file in sorted(page_list):
-        page_title = page_file.replace("_", " ").capitalize()
-        html = html + "<li><a href=" + page_file + ">" + page_title + "</a></li>\n"
-    html = html + "</ul>\n"
 
-    # Update template and save
-    with open(TEMPLATE_FILE, "r", encoding="UTF-8") as t:
-        completed_template = t.read().replace("{{ BODY }}", html)
+def main():
+    """Main function"""
 
-    # Write index page
-    with open(index_file, "w", encoding="UTF-8") as a:
-        a.write(completed_template)
-        print(index_file + " written!")
+    # Get a list of markdown files
+    try:
+        all_markdown_files = get_files()
+        print(all_markdown_files)
+    except Exception as error_message:
+        print("Failed to get markdown files")
+        print(str(error_message))
+
+    # Create necessary subdirectories
+    try:
+        create_directories(all_markdown_files)
+    except Exception as error_message:
+        print("Failed to create directories")
+        print(str(error_message))
+
+    # Convert each file
+    for file_name in all_markdown_files:
+        try:
+            convert_file(file_name)
+        except Exception as error_message:
+            print("Failed to convert " + file_name)
+            print(str(error_message))
+
+    # Copy static directory into docs
+    try:
+        print("Copying static directory")
+        os.system("cp -r static docs/")
+    except Exception as error_message:
+        print("Failed to copy static directory")
+        print(str(error_message))
+
+
+if __name__ == "__main__":
+    main()
