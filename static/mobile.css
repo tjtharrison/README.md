@@ -1,0 +1,22 @@
+@media only screen and (max-width: 1000px) {
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    li a
+    {
+        font-size: 3em;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    a {
+        font-weight: bold;
+
+    }
+    .me {
+        float:none;
+    }
+}

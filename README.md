@@ -1,4 +1,4 @@
-![me](./docs/img/timh.png)
+![me](./docs/static/timh.png)
 ## Tim Harrison { .md }
 ### DevSecOps Tech Lead { .md }
 
@@ -44,8 +44,8 @@ I have a strong technical background working in Fintech and a proven understandi
 
 ## Acheivements
 
-![AWS Security Specialist](./docs/img/aws-certified-security-specialty.png)
-![AWS DevOps Professional](./docs/img/aws-certified-devops-professional.png)
+![AWS Security Specialist](./static/aws-certified-security-specialty.png)
+![AWS DevOps Professional](./static/aws-certified-devops-professional.png)
 
 <span class="green">AWS Security Specialist:</span> I have completed my AWS Security Specialist certification. This covered a wide range of security focused services on AWS and has helped me with my day-to-day work implementing solutions on AWS to improve security posture.
 
