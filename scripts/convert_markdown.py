@@ -57,6 +57,7 @@ def create_directories(all_markdown_files):
 
     return True
 
+
 def convert_file(file_name):
     """
     Convert markdown file to HTML.
@@ -118,6 +119,7 @@ def convert_file(file_name):
         raise Exception from error_message
 
     return True
+
 
 def main():
     """Launch main function."""
