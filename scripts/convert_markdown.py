@@ -36,6 +36,9 @@ def create_directories(all_markdown_files):
     """
     try:
         print("Creating directories")
+        if not os.path.exists("docs"):
+            print("Making directory docs")
+            os.makedirs("docs")
         for file_name in all_markdown_files:
             if "/" in file_name:
                 directory = "docs/" + file_name.rsplit("/", 1)[0]

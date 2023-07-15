@@ -29,5 +29,5 @@ jobs:
           projectName: readme
           directory: docs
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          branch: cloudflare
           wranglerVersion: '3'
