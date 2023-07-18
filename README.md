@@ -1,4 +1,4 @@
-![me](./docs/static/timh.png)
+![me](./static/timh.png)
 ## Tim Harrison { .md }
 ### DevSecOps Tech Lead { .md }
 
