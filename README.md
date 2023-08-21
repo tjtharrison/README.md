@@ -97,4 +97,8 @@ I lead the building of our internal DevOps team focusing on migrating services t
 
 <span class="green">Coding Games:</span> I also spent time on coding websites such as [https://codingame.com](https://codingame.com) which helps me improve my coding efficiency.
 
-<figure><embed src="https://wakatime.com/share/@1c3347e8-db83-4a0d-8126-665673d32651/faae122d-f6c6-4f09-b036-5b9e15884011.svg"></embed></figure>
+## Coding stats
+
+Here are some stats about the languages I've used over the last 30 days.
+
+<figure style="max-width: 500px;margin: 0 auto;"><embed src="https://wakatime.com/share/@1c3347e8-db83-4a0d-8126-665673d32651/faae122d-f6c6-4f09-b036-5b9e15884011.svg"></embed></figure>
