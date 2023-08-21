@@ -96,3 +96,5 @@ I lead the building of our internal DevOps team focusing on migrating services t
 <span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Python3), deploying via Terraform into AWS.
 
 <span class="green">Coding Games:</span> I also spent time on coding websites such as [https://codingame.com](https://codingame.com) which helps me improve my coding efficiency.
+
+<figure><embed src="https://wakatime.com/share/@1c3347e8-db83-4a0d-8126-665673d32651/ad3caf4d-3b4a-4c93-8808-3a08a22e888f.svg"></embed></figure>
