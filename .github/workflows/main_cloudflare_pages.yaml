@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - "main"
+    path_ignore:
+      - ".github/**"
   workflow_dispatch:
 
 permissions: read-all
