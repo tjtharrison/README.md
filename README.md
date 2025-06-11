@@ -12,7 +12,7 @@ I have a strong technical background working in Fintech and a proven understandi
 
 ## Key Leadership Skills
 
-<span class="green">Team Leadership:</span> I have 4 years leadership experience with varying levels of technically skilled team members, requiring leadership skills (technical growth, specialising etc). I have worked leading Infrastructure, Security, DevOps and Development teams in both Kanban and Scrum methodologies and am a strong believer in supporting principals for Agile development.
+<span class="green">Team Leadership:</span> I have 10 years leadership experience with varying levels of technically skilled team members, requiring leadership skills (technical growth, specialising etc). I have worked leading Infrastructure, Security, DevOps and Development teams in both Kanban and Scrum methodologies and am a strong believer in supporting principals for Agile development.
 
 <span class="green">Mentorship:</span> I take pride in working with all members of the team to improve their technical understanding and confidence. I also  volunteer on [Cyber Mentor Dojo](https://cybermentordojo.com/), helping others starting out on their Security careers to focus their learning and answer any questions (technical or career specific).
 
@@ -28,7 +28,7 @@ I have a strong technical background working in Fintech and a proven understandi
 
 <span class="green">DevSecOps:</span> Experienced at working with development teams to improve the security of the SDLC in using tooling and processes, strong believer in shift-left, empowering development teams to own their code security with appropriate documentation and training. Seasoned user of GitHub security functionality (GHAS, audit logging, actions, workflows) and have written a custom lambda function to poll GitHub api and generate reporting and metrics in Datadog for account health over time, highlight non-compliance etc.
 
-<span class="green">Cloud Security:</span> Proven experience working with security services within AWS (AWS Config, Cloudtrail, Security Hub, Guardduty etc). As part of my role as Security Infrastructure lead I also ran incident response for high severity incidents and wrote mitigating runbooks for Cloud security incidents.
+<span class="green">Cloud Security:</span> Proven experience working with security services within AWS (AWS Config, Cloudtrail, Security Hub, Guardduty etc). As part of my role as Security Infrastructure lead I also ran incident response for high severity incidents and wrote mitigating runbooks for Cloud security incidents
 
 <span class="green">Cloud Management:</span> I have over 6 years experience working with AWS across a wide range of services (Including security / compliance focus) with AWS Certs in DevOps Professional / Security Specialist and am currently working towards my Advanced Networking Specialist certificate. Experience working with GCP (Including GKE, Networking), Azure (limited) and other smaller Cloud Providers (Scaleway, Digital Ocean etc.) as well as code hosting platforms such as Heroku.
 
@@ -46,28 +46,54 @@ I have a strong technical background working in Fintech and a proven understandi
 
 ![AWS Security Specialist](./static/aws-certified-security-specialty.png)
 ![AWS DevOps Professional](./static/aws-certified-devops-professional.png)
+![Kubernetes Certified Administrator](./static/cka.png)
+![GitHub Advanced Security](./static/ghas.png)
+![Hashicorp Certified: Vault Associate](./static/hashi_vault.png)
 
 <span class="green">AWS Security Specialist:</span> I have completed my AWS Security Specialist certification. This covered a wide range of security focused services on AWS and has helped me with my day-to-day work implementing solutions on AWS to improve security posture.
 
 <span class="green">AWS DevOps Professional:</span> I have recently completed my AWS DevOps Professional certification. This has helped establish my knowledge over a range of AWS services related to CI/CD pipelines, audits, monitoring and logging.
 
-<span class="green">DevSecOps - Github Advanced Security</span> Took ownership of a project to implement GHAS (GitHub Advanced Security) to an Enterprise account (including writing of custom secret scanning patterns and deployment of workflows to all org repositories). Wrote supporting documentation and provided training to assist with the onboarding for development and security teams. Implemented monitoring of GitHub estate using Datadog with triaging and delivery of notifications to owning teams using Audit logs and custom tooling written to audit compliance of GitHub resources.
+<span class="green">DevSecOps - Github Advanced Security</span> Took ownership of a project to implement GHAS (GitHub Advanced Security) to an Enterprise account (including writing of custom secret scanning patterns and deployment of workflows to all org repositories). Wrote supporting documentation and provided training to assist with the onboarding for development and security teams. Implemented monitoring of GitHub estate using Datadog with triaging and delivery of notifications to owning teams using Audit logs and custom tooling written to audit compliance of GitHub resources. 
 
 <span class="green">DevOps - CI/CD Implementation:</span> Built a CI/CD Pipeline from design through to implementation with requirements from team leaders - Combining Gitlab, Jenkins Multibranch Pipelines, Helm, Kubernetes, Slack, Jira (Transitions, RemoteLinks, Comments) and Private NPM Repository.
 
-<span class="green">Consultancy Business and Tech Article Website</span> Worked (amongst other clients) with a local charity and assisted migrating away from legacy infrastructure to Office 365. Currently, maintain a website of tech articles that consistently gets >500 Unique visitors per week.
 
-<span class="green">Bespoke Website with Database:</span> Wrote a web application based in Python for Music Management startup, including Python Web UI (With account permissions), database backend (to Cloud hosted Database).
+<span class="green">DevOps - Kubernetes:</span> I have a wealth of experience working with Kubernetes, including building and managing clusters on AWS (EKS) and GCP (GKE). I have worked with a range of tools to manage Kubernetes clusters including Helm, ArgoCD and Terraform.
 
-## 5 Years Employment History
+<span class="green">Security - Hashicorp Vault:</span> I have completed my Hashicorp Certified: Vault Associate certification. This has helped me to understand how to implement and manage secrets management solutions using Hashicorp Vault, including integration with Kubernetes, GitHub and other cloud services.
 
-<span class="green">Smart Pensions (September 2022 - Present) DevSecOps Tech Lead:</span> I currently lead a DevSecOps team focusing on improving Security of the Smart Pensions environment through implementation and improvement of tooling and processes.
+## Employment History
 
-I have lead the deployment of GitHub Advanced Security across a GitHub Enterprise account, ensuring full coverage of tooling and supporting processes and documentation were in place to "Shift left" security responsibility to the owning development teams. GitHub security is monitored via Audit logs and a custom lambda that I have written to poll the GitHub API for compliance with our requirement across the Enterprise account (Alerting misconfiguration to relevant teams depending on priority).
+<span class="green">Smart Pensions (January 2025 - Present) Principal Security Engineer:</span> I have maintained my responsibilites from my previous role as DevSecOps | DevEx Tech Lead, with additional responsibilities for the wider security of the Smart Pensions estate.
 
-I am continuing to improve and assist on the infrastructure security on AWS writing Terraform modules and using AWS Tooling (AWS Security Hub, AWS Config, AWS Guardduty) to highlight non-compliance.
+I have taken on the responsibility of managing the security of the Smart Pensions estate, including the implementation of security observability across the Smart Pensions cloud infrastructure, ensuring that all cloud tooling has appropriate security monitoring in place so that the appropriate team is alerted to any issues that may arise. 
+
+This has included consulting with various teams across the business to ensure that the appropriate security tooling and processes are in place for their services.
+
+I have recently delivered an initiative to deliver a process for threat modelling across the Smart Pensions estate, including delivering tooling and processes to allow teams to easily threat model their services and ensure that appropriate mitigations are in place for any identified risks.
+
+I am heavily involved in our audit and compliance processes, including working with our external auditors to ensure that we are compliant with our security policies and procedures. This has included delivering ISO27001 compliance and currently working towards SOC2 compliance.
+
+<span class="green">Smart Pensions (September 2022 - January 2025) DevSecOps | DevEx Tech Lead:</span> I lead a DevSecOps | DevEx team focusing on improving Security of the Smart Pensions environment through implementation and improvement of tooling and processes, while also improving the developer experience and relationship with security teams across the engineering community.
+
+I have lead the deployment of GitHub Advanced Security across a GitHub Enterprise account, ensuring full coverage of tooling and supporting processes and documentation were in place to "shift left" security responsibility to the owning development teams with appropriate automated escalation of longstanding issues to the engineering management team.
+
+I have also lead the team to implement Security observability across the Smart Pensions cloud infrastructure, ensuring that all cloud tooling has appropriate security monitoring in place so that the appropriate team is alerted to any issues that may arise. This has involved threat modelling, writing custom monitoring and runbooks for our monitors in Datadog and ensuring that the right team is aware of the alerts and how to respond to them.
+
+I am continuing to improve and assist on the infrastructure security on AWS writing Terraform modules and using AWS Tooling (AWS Security Hub, AWS Config, AWS Guardduty) as well as other platforms (GitHub, Cloudflare, Dnsimple) to highlight non-compliance and issues that present a risk to the Smart Pensions estate. 
 
 I am building a single plane of glass approach to monitoring - Consolidating SCM, infrastructure and AppSec alerting into Datadog, using Datadog security functionality to aggregate and triage alerting to the appropriate owning team.
+
+I have taken on additional responsibilities as the DevEx Tech Lead, focusing on improving the Developer Experience across the Smart Pensions estate. This split responsibility has given me valuable insight into both leading a team with different stakeholders, as well as a different perspective on the wider engineering team's requirements.
+
+My team has taken stewardship of GitHub, Cloudflare and aspects of AWS and provide "platform as a service" to the wider engineering team. By configuring all aspects of the cloud that we manage (including GitHub Actions, Workflows, GHAS, Audit Logging, Branch Protection, Code Owners etc) to be defined as IAC in Terraform to improve auditability and compliance on changes as well as ease of use. 
+
+My team completed a migration of all CI/CD pipelines from Semaphore CI to GitHub Actions, with the aim to consolidate all CI/CD pipelines into a single platform as well as reducing spend on CI/CD.
+
+I have driven cost saving initiatives across our Cloud estate, including migrating to GitHub self hosted runners, improved observability of spend across the estate and improved tagging of resources to allow for better cost allocation.
+
+I have lead the development of a slack based tool to resolve a longstanding issue across engineering to communicate changes to the wider business. This has allowed a frictionless way for developers to easily communicate changes to the wider business and ensure that the appropriate stakeholders are informed of changes that may impact them, as well as providing a searchable history of changes that have been made.
 
 <span class="green">Ometria (April 2022 - September 2022) Infrastructre Team Lead:</span> I lead a team of infrastructure engineers supporting the cloud estate and engineering team for Ometria. 
 
@@ -85,7 +111,7 @@ Here I lead a number of high priority security incidents, including communicatio
 
 <span class="green">Xara LTD (Jan 2017 - April 2021) Senior Sysadmin / Devops Team Lead:</span> Lead a team which migrated all inhouse baremetal servers to AWS hosted EKS clusters. Managed 24/7 production infrastructure support and assisted migration of application middleware to docker/kubernetes.
 
-I lead the building of our internal DevOps team focusing on migrating services to Kubernetes (Including backups, monitoring, deployment and scaling). Replaced Teamcity CD solution with complete CI/CD solution based on Jenkins.
+I lead the building of our internal DevOps team focusing on migrating services to Kubernetes (including backups, monitoring, deployment and scaling). Replaced Teamcity CD solution with complete CI/CD solution based on Jenkins including flexible and reusable pipelines for all services and teams.
 
 <span class="green">iQuda (Jan 2011 - Jan 2017) Various Roles (Service Desk Management / Level 3 Technician).</span>
 
@@ -93,9 +119,12 @@ I lead the building of our internal DevOps team focusing on migrating services t
 
 <span class="green">DIY:</span> While away from the Computer I spend my time working on DIY projects around the house.
 
-<span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Python3), deploying via Terraform into AWS.
+<span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Golang, Python), deploying via automation into Kubernetes. Recently I have been working on a project to improve my observability using Prometheus to deliver alert events to Kafka to be remediated by a custom Golang application. 
 
-<span class="green">Coding Games:</span> I also spent time on coding websites such as [https://codingame.com](https://codingame.com) which helps me improve my coding efficiency.
+# Write a piece about medium.com
+<span>Medium.com:</span>Over the past year I have spent time writing articles on Medium.com to help share my knowledge with a wider audience. I have written articles on a range of topics including AWS, DevOps, Security and Python. I have found this to be a great way to help others learn and to help me solidify my own knowledge.
+
+<span class="green">Cyber Mentor Dojo:</span> I volunteer on Cyber Mentor Dojo, helping others starting out on their Security careers to focus their learning and answer any questions (technical or career specific).
 
 ## Coding stats
 
