@@ -1,2 +1,2 @@
-markdown==3.8
+markdown==3.9
 pymdown-extensions==10.16
