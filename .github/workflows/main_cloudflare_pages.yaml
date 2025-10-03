@@ -2,8 +2,7 @@ name: Build Cloudflare Pages
 on:
   push:
     branches:
-      # Temp during testing
-      - "go-rewrite"
+      "main"
   workflow_dispatch:
 
 permissions: 
@@ -54,7 +53,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit. Exiting."
           else
-            git commit -m "Update manifests via helm template"
+            git commit -m "Update docs"
             git push --force-with-lease origin docs
           fi
         shell: bash
