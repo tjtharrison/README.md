@@ -40,13 +40,15 @@ jobs:
           git fetch origin main
           git fetch origin docs || echo "docs branch does not exist remotely yet"
           git checkout -B docs origin/main
-          echo "Reset target branch to match main"
+          echo "Reset target branch to match main"=
 
       - name: Commit and push docs
         run: |
           set -e
 
           ls docs
+
+          git status
 
           git add docs
           if git diff --cached --quiet; then
