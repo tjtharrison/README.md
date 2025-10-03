@@ -4,8 +4,6 @@ on:
     branches:
       # Temp during testing
       - "go-rewrite"
-    paths-ignore:
-      - ".github/**"
   workflow_dispatch:
 
 permissions: 
