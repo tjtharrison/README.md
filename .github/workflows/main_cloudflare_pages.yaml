@@ -2,36 +2,58 @@ name: Build Cloudflare Pages
 on:
   push:
     branches:
-      - "main"
-    paths-ignore:
-      - ".github/**"
+      "main"
   workflow_dispatch:
 
-permissions: read-all
+permissions: 
+  contents: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      deployments: write
-    name: Publish to Cloudflare Pages
+    name: Build
     steps:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: '1.24'
+
       - name: Build
         run: |
-          pip3 install -r requirements.txt
-          python3 scripts/convert_markdown.py
+          cd src
+          go mod tidy
+          go run .
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: readme
-          directory: docs
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-          wranglerVersion: '3'
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+        shell: bash
+
+      - name: Fetch and checkout target branch
+        run: |
+          set -e
+          git fetch origin main
+          git fetch origin docs || echo "docs branch does not exist remotely yet"
+          git checkout -B docs origin/main
+          echo "Reset target branch to match main"=
+
+      - name: Commit and push docs
+        run: |
+          set -e
+
+          ls docs
+
+          git status
+
+          git add docs
+          if git diff --cached --quiet; then
+            echo "No changes to commit. Exiting."
+          else
+            git commit -m "Update docs"
+            git push --force-with-lease origin docs
+          fi
+        shell: bash
