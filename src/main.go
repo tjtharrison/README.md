@@ -46,6 +46,20 @@ func mergeTemplate(body []byte) ([]byte, error) {
 	return combinedHtml, nil
 }
 
+func writeIndexFile(combinedHtml []byte) error {
+	log.Info().Msg("Creating index file")
+
+	_, err := os.Stat("../docs")
+
+	if err != nil {
+		log.Info().Msg("Docs dir does not exist, creating")
+		os.Mkdir("../docs", 0700)
+	}
+
+	return os.WriteFile("../docs/index.html", combinedHtml, 0644)
+
+}
+
 func processFile(fileName string) error {
 	log.Info().Msg("Processing file: " + fileName)
 
@@ -62,7 +76,13 @@ func processFile(fileName string) error {
 		return err
 	}
 
-	return os.WriteFile("../docs/index.html", combinedHtml, 0644)
+	err = writeIndexFile(combinedHtml)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func resolveStaticDir() error {
