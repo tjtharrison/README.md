@@ -1,2 +1,2 @@
 markdown==3.10
-pymdown-extensions==10.20.1
+pymdown-extensions==10.21
