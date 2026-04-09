@@ -87,3 +87,7 @@
 <span class="green">Personal Projects:</span> In the evenings I enjoy working on personal coding projects (primarily Golang, Python), deploying via automation into Kubernetes. Recently I have been working on a project to improve my observability using Prometheus to deliver alert events to Kafka to be remediated by a custom Golang application.
 
 <span class="green">Medium.com:</span> I write articles on Medium about my personal projects and experiences in the tech industry. [tjtharrison.medium.com](https://tjtharrison.medium.com)
+
+## Education
+
+Parmiter's School: A Levels in Sociology, History, IT and English (graduated 2009).

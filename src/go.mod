@@ -3,7 +3,7 @@ module tjtharrison/readme
 go 1.24.4
 
 require (
-	github.com/gomarkdown/markdown 37c66b85d6ab
+	github.com/gomarkdown/markdown v0.0.0-20260217112301-37c66b85d6ab
 	github.com/rs/zerolog v1.34.0
 )
 
