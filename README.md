@@ -90,4 +90,4 @@
 
 ## Education
 
-Parmiter's School: A Levels in Sociology, History, IT and English (graduated 2009).
+Parmiter's School: A Levels in Sociology, History and IT (graduated 2009).
